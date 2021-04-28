@@ -669,7 +669,7 @@ PlayerSettings:
   webGLLinkerTarget: 1
   webGLThreadsSupport: 0
   webGLDecompressionFallback: 0
-  scriptingDefineSymbols: {}
+  scriptingDefineSymbols: {1: VIU_OCULUSVR_DESKTOP_SUPPORT;VIU_OPENVR_API;VIU_STEAMVR;VIU_STEAMVR_1_1_1;VIU_STEAMVR_1_2_0_OR_NEWER;VIU_STEAMVR_1_2_1_OR_NEWER;VIU_STEAMVR_1_2_2_OR_NEWER;VIU_STEAMVR_1_2_3_OR_NEWER;VIU_STEAMVR_2_0_0_OR_NEWER;VIU_STEAMVR_2_1_0_OR_NEWER;VIU_STEAMVR_2_2_0_OR_NEWER;VIU_STEAMVR_2_4_0_OR_NEWER;VIU_STEAMVR_2_6_0_OR_NEWER;VIU_XR_GENERAL_SETTINGS;VIU_XR_PACKAGE_METADATA_STORE;VIU_PLUGIN;VIU_OPENVR_SUPPORT}
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:
@@ -691,8 +691,8 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: Template_3D
-  metroPackageVersion: 
+  metroPackageName: Template3D
+  metroPackageVersion: 1.0.0.0
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
@@ -700,7 +700,7 @@ PlayerSettings:
   metroCertificateNotAfter: 0000000000000000
   metroApplicationDescription: Template_3D
   wsaImages: {}
-  metroTileShortName: 
+  metroTileShortName: VR project
   metroTileShowName: 0
   metroMediumTileShowName: 0
   metroLargeTileShowName: 0
