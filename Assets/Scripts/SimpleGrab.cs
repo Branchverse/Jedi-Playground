@@ -27,18 +27,15 @@ public class SimpleGrab : MonoBehaviour
         GrabTypes grabType = hand.GetBestGrabbingType();
         bool isGrabEnding = hand.IsGrabEnding(gameObject);
 
-        PlayerStatus playerStatus = GameObject.Find("PlayerStatus").GetComponent<PlayerStatus>();
 
         if (interactable.attachedToHand == null && grabType != GrabTypes.None){
             hand.AttachObject(gameObject, grabType);
             hand.HoverLock(interactable);
             hand.HideGrabHint();      
-            playerStatus.playerStatus["handitem"] = "lightsaber";
         }
         else if (isGrabEnding) {
             hand.DetachObject(gameObject);
             hand.HoverUnlock(interactable);
-            playerStatus.playerStatus["handitem"] = "";
         }
     }
 
