@@ -1,13 +1,9 @@
 fileFormatVersion: 2
-guid: 889ba58f3d92bb246a36e17baffb1f18
+guid: 0eb83228b5e5cc843b31282fec568dc0
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - rend: {instanceID: 0}
-  - panel: {instanceID: 0}
-  - image: {instanceID: 0}
-  - button: {instanceID: 0}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

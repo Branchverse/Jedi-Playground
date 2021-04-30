@@ -36,7 +36,7 @@ public class LineRendererSettings : MonoBehaviour
         AlignLineRenderer(rend);
         rend.material.color = rend.startColor;
 
-        if (AlignLineRenderer(rend) && Input.GetAxis("XRI_Right_Trigger") > 0)
+        if (AlignLineRenderer(rend) && Input.GetAxis("Submit") > 0)
             {
                 button.onClick.Invoke();
             }   
