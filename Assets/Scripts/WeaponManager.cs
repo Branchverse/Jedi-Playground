@@ -14,7 +14,6 @@ public class WeaponManager : MonoBehaviour
     // Blade is extended or not.
     private bool weaponTurnedOn;
 
-
     private float minimumSwordSize = 0.0f;
     
     [Tooltip("The maximum extension of the Blade.")]
