@@ -36,18 +36,18 @@ public class PistolController : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown("space")) { Shoot(); } //until VR tester implements the correct key this will be the way to go
-        // if (interactable.attachedToHand != null)
-        // {
-        //     SteamVR_Input_Sources source = interactable.attachedToHand.handType;
+         if (interactable.attachedToHand != null)
+        {
+            SteamVR_Input_Sources source = interactable.attachedToHand.handType;
 
-        //     Debug.Log(source.ToString());
+            Debug.Log(source.ToString());
 
-        //     if (shoot[source].stateDown)
-        //     {
-        //         Shoot();
-        //         Debug.Log("Bullet has been shot.");
-        //     }
-        // }
+            if (shoot[source].stateDown)
+            {
+                Shoot();
+                Debug.Log("Bullet has been shot.");
+            }
+        }
     }
 
     void Shoot()
