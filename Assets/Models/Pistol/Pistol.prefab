@@ -84,7 +84,7 @@ MonoBehaviour:
     actionPath: /actions/default/in/GrabPinch
     needsReinit: 0
   bulletSpawner: {fileID: 7915495154182721459}
-  bulletSpeed: 100
+  bulletSpeed: 40
   bulletLifeTime: 3
   bulletPrefab: {fileID: 9210101143899765707, guid: aa61cc6fef2a7854cbc15b0e3dafc07f,
     type: 3}
