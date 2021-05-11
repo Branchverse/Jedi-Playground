@@ -15,7 +15,7 @@ public class PistolController : MonoBehaviour
 
     [SerializeField]
     [Tooltip("Bullet flight speed.")]
-    private float bulletSpeed = 40f; //make sure to also change bulletSpeed in BulletHandler
+    private float bulletSpeed = 4f; //make sure to also change bulletSpeed in BulletHandler
 
     [SerializeField]
     [Tooltip("Bullet will disappear after this time in seconds.")]

@@ -25,7 +25,7 @@ public class WeaponManager : MonoBehaviour
 
     [SerializeField]
     [Tooltip("The extend speed in seconds.")]
-    private float extendSpeed = 0.1f ;
+    private float extendSpeed = 0.05f ;
 
     [SerializeField]
     [Tooltip("The maximum extension of the Blade.")]
