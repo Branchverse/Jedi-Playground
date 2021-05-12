@@ -9904,10 +9904,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b700f903bc168141b28577849589e2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ActionSet:
-    actionSetPath: 
-  leftHand: 1
-  rightHand: 2
 --- !u!4 &308581538 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 029feb27265da7849b7078bd795f361a,
@@ -15328,6 +15324,75 @@ Transform:
   m_Father: {fileID: 333071810}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &629140238
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3923429697160011822, guid: ce14fcd5f9f874b4586589b48955550a,
+        type: 3}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8360031938800264741, guid: ce14fcd5f9f874b4586589b48955550a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 33
+      objectReference: {fileID: 0}
+    - target: {fileID: 8360031938800264741, guid: ce14fcd5f9f874b4586589b48955550a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8360031938800264741, guid: ce14fcd5f9f874b4586589b48955550a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8360031938800264741, guid: ce14fcd5f9f874b4586589b48955550a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8360031938800264741, guid: ce14fcd5f9f874b4586589b48955550a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8360031938800264741, guid: ce14fcd5f9f874b4586589b48955550a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8360031938800264741, guid: ce14fcd5f9f874b4586589b48955550a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8360031938800264741, guid: ce14fcd5f9f874b4586589b48955550a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8360031938800264741, guid: ce14fcd5f9f874b4586589b48955550a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8360031938800264741, guid: ce14fcd5f9f874b4586589b48955550a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8360031938800264741, guid: ce14fcd5f9f874b4586589b48955550a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ce14fcd5f9f874b4586589b48955550a, type: 3}
 --- !u!43 &630751344
 Mesh:
   m_ObjectHideFlags: 0
@@ -59075,43 +59140,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79f30c7baf59f68468ea82a38473449d, type: 3}
---- !u!1 &1486644278 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3441095255025812787, guid: 79f30c7baf59f68468ea82a38473449d,
-    type: 3}
-  m_PrefabInstance: {fileID: 1486644277}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1486644279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1486644278}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16a9b39235339104889bf8e9178fc630, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  booleanAction:
-    actionPath: 
-    needsReinit: 0
-  inputSource: 0
-  onChange:
-    m_PersistentCalls:
-      m_Calls: []
-  onUpdate:
-    m_PersistentCalls:
-      m_Calls: []
-  onPress:
-    m_PersistentCalls:
-      m_Calls: []
-  onPressDown:
-    m_PersistentCalls:
-      m_Calls: []
-  onPressUp:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1001 &1487455162
 PrefabInstance:
   m_ObjectHideFlags: 0
