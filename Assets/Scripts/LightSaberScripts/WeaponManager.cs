@@ -57,11 +57,11 @@ Vector3 vector = new Vector3(-1.0f,0f);
     void Update()
     {   
         //if(i%120 == 0){weaponTurnedOn = !weaponTurnedOn;Debug.Log("Weapon state changed");}i++; //for blade function tests without input. 
+        if (interactable == null){
+            return;
+        }
          if (interactable.attachedToHand != null){
              SteamVR_Input_Sources source = interactable.attachedToHand.handType;
-
-            Debug.Log(source.ToString());
-
              if (activateBlade[source].stateDown){
                  weaponTurnedOn = !weaponTurnedOn;
                  Debug.Log("Weapon state changed");
