@@ -2,7 +2,8 @@
   "actions": [
     {
       "name": "/actions/default/in/InteractUI",
-      "type": "boolean"
+      "type": "boolean",
+      "requirement": "mandatory"
     },
     {
       "name": "/actions/default/in/Teleport",
@@ -48,6 +49,21 @@
     {
       "name": "/actions/default/in/SnapTurnRight",
       "type": "boolean"
+    },
+    {
+      "name": "/actions/default/in/ActivateMenu",
+      "type": "boolean",
+      "requirement": "mandatory"
+    },
+    {
+      "name": "/actions/default/in/Select",
+      "type": "boolean",
+      "requirement": "mandatory"
+    },
+    {
+      "name": "/actions/default/in/MenuSelectionPosition",
+      "type": "vector2",
+      "requirement": "mandatory"
     },
     {
       "name": "/actions/default/out/Haptic",
