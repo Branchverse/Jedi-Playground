@@ -25,7 +25,7 @@ public class WeaponManager : MonoBehaviour
 
     [SerializeField]
     [Tooltip("The extend speed in seconds.")]
-    private float extendSpeed = 0.1f ;
+    private float extendSpeed = 0.05f ;
 
     [SerializeField]
     [Tooltip("The maximum extension of the Blade.")]
@@ -57,22 +57,23 @@ Vector3 vector = new Vector3(-1.0f,0f);
     void Update()
     {   
         //if(i%120 == 0){weaponTurnedOn = !weaponTurnedOn;Debug.Log("Weapon state changed");}i++; //for blade function tests without input. 
+        if (interactable == null){
+            return;
+        }
          if (interactable.attachedToHand != null){
              SteamVR_Input_Sources source = interactable.attachedToHand.handType;
-
-            Debug.Log(source.ToString());
-
              if (activateBlade[source].stateDown){
                  weaponTurnedOn = !weaponTurnedOn;
                  Debug.Log("Weapon state changed");
              }
          }
         UpdateWeapon();
-        
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        FindObjectOfType<AudioManager>().StopPlaying("saber_humming");
+        FindObjectOfType<AudioManager>().Play("saber_cut");
         Debug.Log("Enter Triggered");
         Debug.Log(other);
         _triggerEnterTipPosition = _tip.transform.position;
@@ -115,6 +116,9 @@ Vector3 vector = new Vector3(-1.0f,0f);
         GameObject[] slices = Slicer.Slice(plane, other.gameObject);
         Destroy(other.gameObject);
 
+        FindObjectOfType<AudioManager>().StopPlaying("saber_cut");
+        FindObjectOfType<AudioManager>().Play("saber_humming");
+
         Rigidbody rigidbody = slices[1].GetComponent<Rigidbody>();
         Vector3 newNormal = transformedNormal + Vector3.up * _forceAppliedToCut;
         rigidbody.AddForce(newNormal, ForceMode.Impulse);
@@ -131,6 +135,8 @@ Vector3 vector = new Vector3(-1.0f,0f);
         
             if(_blade.transform.localScale.y <= 0.1)
             {
+                FindObjectOfType<AudioManager>().StopPlaying("saber_humming");
+                FindObjectOfType<AudioManager>().Play("saber_turn_off");
                 _blade.SetActive(false);
             }
         }
@@ -138,6 +144,8 @@ Vector3 vector = new Vector3(-1.0f,0f);
         {
             if(_blade.activeSelf==false)
             {
+                FindObjectOfType<AudioManager>().Play("saber_turn_on");
+                FindObjectOfType<AudioManager>().Play("saber_humming");
                 _blade.SetActive(true);
             }
             _blade.transform.localScale = new Vector3(_blade.transform.localScale.x, Mathf.Clamp(currentSize + (extendDelta * Time.deltaTime), minimumSwordSize, maximumSwordSize), _blade.transform.localScale.z);

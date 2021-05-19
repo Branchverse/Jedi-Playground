@@ -5,7 +5,7 @@ using static PistolController;
 
 public class BulletHandler : MonoBehaviour
 {
-    private float bulletSpeed = 40f;
+    private float bulletSpeed = 4f;
     // Start is called before the first frame update
     void Start()
     {
