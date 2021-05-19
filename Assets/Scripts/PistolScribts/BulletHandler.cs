@@ -28,10 +28,11 @@ public class BulletHandler : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter()
+    void OnTriggerEnter(Collider other)
     {
         Debug.Log("asdasd");
-        //Destroy(gameObject);
+        Destroy(gameObject);
+        Destroy(other.gameObject);
     }
 
     // OnTrigger Destroy
