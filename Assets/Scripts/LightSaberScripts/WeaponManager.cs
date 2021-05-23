@@ -62,6 +62,7 @@ Vector3 vector = new Vector3(-1.0f,0f);
         }
          if (interactable.attachedToHand != null){
              SteamVR_Input_Sources source = interactable.attachedToHand.handType;
+             FindObjectOfType<PlayerStats>().setLastLightsaber(transform.gameObject);
              if (activateBlade[source].stateDown){
                  weaponTurnedOn = !weaponTurnedOn;
                  Debug.Log("Weapon state changed");
