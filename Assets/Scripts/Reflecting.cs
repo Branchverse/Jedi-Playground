@@ -9,7 +9,7 @@ public class Reflecting : MonoBehaviour
     public bool IsActive;
     void Start()
     {
-        IsActive = false;
+        
     }
 
 }

@@ -83,6 +83,9 @@ Vector3 vector = new Vector3(-1.0f,0f);
 
     private void OnTriggerExit(Collider other)
     {
+        if (other.GetComponent<Sliceable>() == null){
+            return;
+        }
         Debug.Log("Exit Triggered");
         _triggerExitTipPosition = _tip.transform.position;
 
