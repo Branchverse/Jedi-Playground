@@ -126,3 +126,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b3c04ce31d0bae4d9d3c0355e7a5db7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BulletTexture: {fileID: 1257844600195949095, guid: bd15a22caaff1004e90fbc4c5dd048c5,
+    type: 3}

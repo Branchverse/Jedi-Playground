@@ -40,7 +40,6 @@ public class PistolController : MonoBehaviour
         {
             SteamVR_Input_Sources source = interactable.attachedToHand.handType;
 
-            Debug.Log(source.ToString());
 
             if (shoot[source].stateDown)
             {

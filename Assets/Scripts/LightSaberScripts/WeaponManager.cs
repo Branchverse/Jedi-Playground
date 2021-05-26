@@ -140,6 +140,12 @@ Vector3 vector = new Vector3(-1.0f,0f);
                 FindObjectOfType<AudioManager>().Play("saber_turn_off");
                 _blade.SetActive(false);
             }
+            foreach (Transform eachChild in transform){
+                if (eachChild.name == "DeflectHitbox"){
+                    eachChild.GetComponent<Reflecting>().IsActive = true;
+                    break;
+                }
+            }
         }
         else
         {
@@ -151,7 +157,11 @@ Vector3 vector = new Vector3(-1.0f,0f);
             }
             _blade.transform.localScale = new Vector3(_blade.transform.localScale.x, Mathf.Clamp(currentSize + (extendDelta * Time.deltaTime), minimumSwordSize, maximumSwordSize), _blade.transform.localScale.z);
             
-            
+            foreach (Transform eachChild in transform){
+                if (eachChild.name == "DeflectHitbox"){
+                    eachChild.GetComponent<Reflecting>().IsActive = false;
+                }
+            }
         }
     }
 }
