@@ -34,6 +34,7 @@ public class GateMover : MonoBehaviour
         if(Input.GetKeyDown("space"))
         {
             openTheGate = true;
+            
         }
     }
 
