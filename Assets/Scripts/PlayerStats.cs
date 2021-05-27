@@ -19,11 +19,13 @@ public class PlayerStats : MonoBehaviour
     private bool isPullingSaber;
 
 
+
     private void Awake() {
             isPulling = SteamVR_Actions._default.GrabPinch;
 
             isPulling[SteamVR_Input_Sources.LeftHand].onStateDown += moveLightsaber;
             isPulling[SteamVR_Input_Sources.RightHand].onStateDown += moveLightsaber;
+            isPulling[SteamVR_Input_Sources.Any].onStateUp += stopLightsaberPull;
 
     }
 
@@ -33,6 +35,10 @@ public class PlayerStats : MonoBehaviour
 
     void Update() {
         if (isPullingSaber && !targetHand.GetComponent<Hand>().ObjectIsAttached(LastUsedLightSaber)){
+            if (targetHand.GetComponent<Hand>().hoverLocked){
+                Debug.Log("Is holding object");
+                return;
+            }
             Debug.Log(targetHand.GetComponent<Hand>().currentAttachedObject);
             Vector3 LightSaberVelocity = targetHand.transform.position - LastUsedLightSaber.transform.position;
             //scale Vector to length 10
@@ -40,7 +46,7 @@ public class PlayerStats : MonoBehaviour
             Vector3 SabertoTargetDelta = targetHand.transform.position - LastUsedLightSaber.transform.position;
             if (SabertoTargetDelta.magnitude<0.25){
                 Valve.VR.InteractionSystem.Hand Hand =  targetHand.GetComponent<Hand>();
-                Hand.AttachObject(LastUsedLightSaber, Hand.GetBestGrabbingType());
+                Hand.AttachObject(LastUsedLightSaber, Hand.GetBestGrabbingType(), LastUsedLightSaber.GetComponent<Throwable>().attachmentFlags,LastUsedLightSaber.GetComponent<Throwable>().attachmentOffset);
                 isPullingSaber = false;
             }
         }
@@ -77,4 +83,8 @@ public class PlayerStats : MonoBehaviour
         return LastUsedLightSaber;
     }
     
+
+    private void stopLightsaberPull(SteamVR_Action_Boolean action_Boolean, SteamVR_Input_Sources source){
+        isPullingSaber = false;
+    }
 }
