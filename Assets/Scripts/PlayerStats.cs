@@ -19,10 +19,13 @@ public class PlayerStats : MonoBehaviour
     private bool isPullingSaber;
 
 
+
     private void Awake() {
             isPulling = SteamVR_Actions._default.GrabPinch;
 
-            isPulling[SteamVR_Input_Sources.Any].onStateDown += moveLightsaber;
+            isPulling[SteamVR_Input_Sources.LeftHand].onStateDown += moveLightsaber;
+            isPulling[SteamVR_Input_Sources.RightHand].onStateDown += moveLightsaber;
+            isPulling[SteamVR_Input_Sources.Any].onStateUp += stopLightsaberPull;
 
     }
 
@@ -31,31 +34,38 @@ public class PlayerStats : MonoBehaviour
     }
 
     void Update() {
-        if (isPullingSaber && !this.targetHand.GetComponent<Hand>().ObjectIsAttached(this.LastUsedLightSaber)){
-            Vector3 LightSaberVelocity = this.targetHand.transform.position - this.LastUsedLightSaber.transform.position;
+        if (isPullingSaber && !targetHand.GetComponent<Hand>().ObjectIsAttached(LastUsedLightSaber)){
+            if (targetHand.GetComponent<Hand>().hoverLocked){
+                Debug.Log("Is holding object");
+                return;
+            }
+            Debug.Log(targetHand.GetComponent<Hand>().currentAttachedObject);
+            Vector3 LightSaberVelocity = targetHand.transform.position - LastUsedLightSaber.transform.position;
             //scale Vector to length 10
-            this.LastUsedLightSaber.GetComponent<Rigidbody>().velocity = Vector3.Scale( Vector3.Normalize(LightSaberVelocity), new Vector3(10,10,10));
-            Vector3 SabertoTargetDelta = this.targetHand.transform.position - this.LastUsedLightSaber.transform.position;
+            LastUsedLightSaber.GetComponent<Rigidbody>().velocity = Vector3.Scale( Vector3.Normalize(LightSaberVelocity), new Vector3(10,10,10));
+            Vector3 SabertoTargetDelta = targetHand.transform.position - LastUsedLightSaber.transform.position;
             if (SabertoTargetDelta.magnitude<0.25){
-                Valve.VR.InteractionSystem.Hand Hand =  this.targetHand.GetComponent<Hand>();
-                Hand.AttachObject(this.LastUsedLightSaber, Hand.GetBestGrabbingType());
-                this.isPullingSaber = false;
+                Valve.VR.InteractionSystem.Hand Hand =  targetHand.GetComponent<Hand>();
+                Hand.AttachObject(LastUsedLightSaber, Hand.GetBestGrabbingType(), LastUsedLightSaber.GetComponent<Throwable>().attachmentFlags,LastUsedLightSaber.GetComponent<Throwable>().attachmentOffset);
+                isPullingSaber = false;
             }
         }
     }
 
     private void moveLightsaber(SteamVR_Action_Boolean action_Boolean, SteamVR_Input_Sources source){
-        if (this.LastUsedLightSaber == null){
+        if (LastUsedLightSaber == null){
             return;
         }
+        Debug.Log(source);
         Debug.Log("Pulling Object");
-        this.targetHand = GameObject.Find("/Player/SteamVRObjects/RightHand");
+        targetHand = GameObject.Find("/Player/SteamVRObjects/RightHand");
         if (source == SteamVR_Input_Sources.LeftHand){
-            this.targetHand =  GameObject.Find("/Player/SteamVRObjects/LeftHand");
+            targetHand =  GameObject.Find("/Player/SteamVRObjects/LeftHand");
         }
-        if (!this.targetHand.GetComponent<Hand>().ObjectIsAttached(this.LastUsedLightSaber)){
+        
+        if (!targetHand.GetComponent<Hand>().ObjectIsAttached(LastUsedLightSaber)){
             Debug.Log("pulling lightsaber"); 
-            this.isPullingSaber = true;
+            isPullingSaber = true;
         } else {
             Debug.Log("not pulling as hand is already holding object");
 
@@ -66,11 +76,15 @@ public class PlayerStats : MonoBehaviour
 
     }
     public void setLastLightsaber(GameObject saber) {
-        this.LastUsedLightSaber = saber;
+        LastUsedLightSaber = saber;
     }
 
     public GameObject getLastLightsaber() {
-        return this.LastUsedLightSaber;
+        return LastUsedLightSaber;
     }
     
+
+    private void stopLightsaberPull(SteamVR_Action_Boolean action_Boolean, SteamVR_Input_Sources source){
+        isPullingSaber = false;
+    }
 }

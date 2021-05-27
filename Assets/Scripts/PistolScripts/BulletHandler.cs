@@ -47,8 +47,11 @@ public class BulletHandler : MonoBehaviour
 
         //lightsaber reflects shots    
         if (other.gameObject.GetComponent<Reflecting>() != null){
+            Debug.Log("reflecting this bullet hehe");
+            gameObject.GetComponent<Rigidbody>().velocity = gameObject.GetComponent<Rigidbody>().velocity * -1;
             if (other.gameObject.GetComponent<Reflecting>().IsActive){
-                gameObject.GetComponent<Rigidbody>().velocity = gameObject.GetComponent<Rigidbody>().velocity * -1;
+                Debug.Log("Reflector active");
+                //fill this
             }
             return;
         }
