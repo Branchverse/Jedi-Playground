@@ -9,11 +9,11 @@ public class forcePushScript : MonoBehaviour
     GameObject player;
 
     // TODO: change direction v3 to input
-    void Start()
+    void Start ()
     {  
         player = GameObject.FindWithTag("Player");
         direction = player.transform.forward;
-        rb.velocity = direction * 100;
+        rb.velocity = direction * 10;
 
         StartCoroutine("KillAfterTime");
     }
@@ -25,22 +25,24 @@ public class forcePushScript : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void OnCollisionEnter (Collision collision) 
+    private void OnTriggerEnter (Collider collider)
     {
-        // don't know if this is needed, ignores collision with player
-        if (collision.gameObject.tag == "Player")
+        Rigidbody bodyOfCollider = collider.gameObject.GetComponent<Rigidbody>();
+        if (bodyOfCollider)
         {
-            print(gameObject.GetComponent<Collider>());
-            print(collision.gameObject.GetComponent<Collider>());
-            Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), collision.gameObject.GetComponent<Collider>());
+            bodyOfCollider.AddForce(direction * 3000);
+        }
 
+        // don't know if this is needed, ignores collision with player
+        if (collider.tag == "Player")
+        {
+            Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), collider.GetComponent<Collider>());
         }
 
         // kill on wall
-        if (collision.collider.GetType() == typeof(MeshCollider)) 
+        if (collider.GetType() == typeof(MeshCollider)) 
         {
             Destroy(gameObject);
         } 
-
     }
 }
