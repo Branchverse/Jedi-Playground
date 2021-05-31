@@ -18,13 +18,17 @@ public class PlayerStats : MonoBehaviour
 
     private bool isPullingSaber;
 
+    public int HandMode;
+
+    public GameObject ForcePushObject;
+
 
 
     private void Awake() {
             isPulling = SteamVR_Actions._default.GrabPinch;
 
-            isPulling[SteamVR_Input_Sources.LeftHand].onStateDown += moveLightsaber;
-            isPulling[SteamVR_Input_Sources.RightHand].onStateDown += moveLightsaber;
+            isPulling[SteamVR_Input_Sources.LeftHand].onStateDown += useForce;
+            isPulling[SteamVR_Input_Sources.RightHand].onStateDown += useForce;
             isPulling[SteamVR_Input_Sources.Any].onStateUp += stopLightsaberPull;
 
     }
@@ -34,6 +38,16 @@ public class PlayerStats : MonoBehaviour
     }
 
     void Update() {
+        if (Input.GetKeyDown(KeyCode.P)){
+            if (HandMode == 1){
+                Debug.Log("Changed Hand mode to 0");
+                HandMode = 0;
+                
+            } else {
+                Debug.Log("Changed Hand mode to 1");
+                HandMode = 1;
+            }
+        }
         if (isPullingSaber && !targetHand.GetComponent<Hand>().ObjectIsAttached(LastUsedLightSaber)){
             if (targetHand.GetComponent<Hand>().hoverLocked){
                 Debug.Log("Is holding object");
@@ -46,10 +60,36 @@ public class PlayerStats : MonoBehaviour
             Vector3 SabertoTargetDelta = targetHand.transform.position - LastUsedLightSaber.transform.position;
             if (SabertoTargetDelta.magnitude<0.25){
                 Valve.VR.InteractionSystem.Hand Hand =  targetHand.GetComponent<Hand>();
+                Debug.Log(Hand);      
+                LastUsedLightSaber.transform.position = Hand.transform.position;  
+                LastUsedLightSaber.transform.rotation = Hand.transform.rotation;                     
                 Hand.AttachObject(LastUsedLightSaber, Hand.GetBestGrabbingType(), LastUsedLightSaber.GetComponent<Throwable>().attachmentFlags,LastUsedLightSaber.GetComponent<Throwable>().attachmentOffset);
                 isPullingSaber = false;
             }
         }
+    }
+
+
+    private void useForce(SteamVR_Action_Boolean action_Boolean, SteamVR_Input_Sources source){
+        if (HandMode == 0){
+            moveLightsaber(action_Boolean, source);
+        } else if (HandMode == 1){
+            forcePush(action_Boolean, source);
+        }
+    }
+
+
+
+    private void forcePush(SteamVR_Action_Boolean action_Boolean, SteamVR_Input_Sources source){
+        var startHand = GameObject.Find("/Player/SteamVRObjects/RightHand");
+        if (source == SteamVR_Input_Sources.LeftHand){
+            startHand =  GameObject.Find("/Player/SteamVRObjects/LeftHand");
+        }  
+        GameObject Push = Instantiate(ForcePushObject, startHand.transform.position, Quaternion.Euler(new Vector3(0,0,0)));
+        Vector3 force = startHand.GetComponentInChildren<ForceDirection>().getDirection();
+        Push.GetComponent<Rigidbody>().velocity = Vector3.Scale(force, new Vector3(20,20,20));
+        Debug.DrawRay(startHand.transform.position, Vector3.Scale(force, new Vector3(20,20,20)), Color.green, 10f);
+        Debug.Log("Spawned Forceball");
     }
 
     private void moveLightsaber(SteamVR_Action_Boolean action_Boolean, SteamVR_Input_Sources source){
@@ -71,7 +111,6 @@ public class PlayerStats : MonoBehaviour
 
         }
         
-        //this.LastUsedLightSaber.transform.position = Vector3.MoveTowards(, , 1);
         
 
     }
