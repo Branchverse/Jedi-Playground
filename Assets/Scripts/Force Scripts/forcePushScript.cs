@@ -11,10 +11,11 @@ public class forcePushScript : MonoBehaviour
     // TODO: change direction v3 to input
     void Start()
     {  
+        /*
         player = GameObject.FindWithTag("Player");
         direction = player.transform.forward;
         rb.velocity = direction * 100;
-
+        */
         StartCoroutine("KillAfterTime");
     }
 
@@ -27,13 +28,21 @@ public class forcePushScript : MonoBehaviour
 
     private void OnCollisionEnter (Collision collision) 
     {
-        // don't know if this is needed, ignores collision with player
+        if (collision.gameObject == null){
+            return;
+        }
+        // don't know if this is needed, ignores collision with player 
         if (collision.gameObject.tag == "Player")
         {
             print(gameObject.GetComponent<Collider>());
             print(collision.gameObject.GetComponent<Collider>());
             Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), collision.gameObject.GetComponent<Collider>());
 
+        }
+
+        //or children of the player gameObject
+        if (collision.gameObject.transform.root.gameObject.tag == "Player"){
+            Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), collision.gameObject.GetComponent<Collider>());
         }
 
         // kill on wall
