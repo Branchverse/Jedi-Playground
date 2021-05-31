@@ -8996,7 +8996,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh34630
+  m_Name: pb_Mesh40734
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -21063,7 +21063,7 @@ ReflectionProbe:
   m_Enabled: 1
   serializedVersion: 2
   m_Type: 0
-  m_Mode: 1
+  m_Mode: 2
   m_RefreshMode: 2
   m_TimeSlicingMode: 0
   m_Resolution: 128
@@ -21082,7 +21082,7 @@ ReflectionProbe:
   m_BlendDistance: 0
   m_HDR: 1
   m_BoxProjection: 0
-  m_RenderDynamicObjects: 0
+  m_RenderDynamicObjects: 1
   m_UseOcclusionCulling: 1
   m_Importance: 1
   m_CustomBakedTexture: {fileID: 0}
@@ -28784,6 +28784,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1636875689373097104, guid: cf75402abc0ad424fa2b3be6bc2c1ed8,
+        type: 3}
+      propertyPath: ForcePushObject
+      value: 
+      objectReference: {fileID: 1967563177001887611, guid: a1eb8d11fd35a5e4e8d3d3804879b1a1,
+        type: 3}
     - target: {fileID: 2119964966168121363, guid: cf75402abc0ad424fa2b3be6bc2c1ed8,
         type: 3}
       propertyPath: m_Name
@@ -31014,6 +31020,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SaberBlue
+      objectReference: {fileID: 0}
+    - target: {fileID: 5095715978977586796, guid: 79f30c7baf59f68468ea82a38473449d,
+        type: 3}
+      propertyPath: hideHandOnAttach
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5247273969708224055, guid: 79f30c7baf59f68468ea82a38473449d,
         type: 3}
