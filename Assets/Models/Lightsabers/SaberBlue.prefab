@@ -474,7 +474,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attachmentFlags: 44
-  attachmentOffset: {fileID: 0}
+  attachmentOffset: {fileID: 8554115967343656818}
   catchingSpeedThreshold: -1
   releaseVelocityStyle: 1
   releaseVelocityTimeOffset: -0.011
@@ -1062,13 +1062,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7391157662777420793}
-  m_LocalRotation: {x: -0.4971997, y: -0.4705732, z: -0.50278467, w: 0.5277887}
-  m_LocalPosition: {x: -0.04, y: 0.105, z: -0.008}
+  m_LocalRotation: {x: -0.14526838, y: -0.13577437, z: -0.6751274, w: 0.71039814}
+  m_LocalPosition: {x: -0.040001787, y: 0.10499982, z: -0.007995925}
   m_LocalScale: {x: 5.806328, y: 5.806328, z: 5.806328}
   m_Children: []
   m_Father: {fileID: 5247273969708224055}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: -86.4, y: 2.96, z: -90}
+  m_LocalEulerAnglesHint: {x: -22.937, y: 0.202, z: -87.124}
 --- !u!1 &7723590321085297245
 GameObject:
   m_ObjectHideFlags: 0

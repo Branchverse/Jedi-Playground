@@ -61,9 +61,9 @@ public class PlayerStats : MonoBehaviour
             if (SabertoTargetDelta.magnitude<0.25){
                 Valve.VR.InteractionSystem.Hand Hand =  targetHand.GetComponent<Hand>();
                 Debug.Log(Hand);      
-                LastUsedLightSaber.transform.position = Hand.transform.position;  
-                LastUsedLightSaber.transform.rotation = Hand.transform.rotation;                     
-                Hand.AttachObject(LastUsedLightSaber, Hand.GetBestGrabbingType(), LastUsedLightSaber.GetComponent<Throwable>().attachmentFlags,LastUsedLightSaber.GetComponent<Throwable>().attachmentOffset);
+                Vector3 offset = LastUsedLightSaber.transform.position - LastUsedLightSaber.transform.GetChild(0).gameObject.transform.position;
+                LastUsedLightSaber.transform.position = Hand.transform.position + offset;      
+                Hand.AttachObject(LastUsedLightSaber, Hand.GetBestGrabbingType(),LastUsedLightSaber.GetComponent<Throwable>().attachmentFlags, LastUsedLightSaber.GetComponent<Throwable>().attachmentOffset);           
                 isPullingSaber = false;
             }
         }
