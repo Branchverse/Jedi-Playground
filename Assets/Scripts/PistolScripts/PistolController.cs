@@ -57,7 +57,6 @@ public class PistolController : MonoBehaviour
         Rigidbody bulletPrefabCloneRB = bulletPrefabClone.GetComponent<Rigidbody>();
         // Give bullet speed
         bulletPrefabCloneRB.AddForce(bulletSpawner.forward * bulletSpeed, ForceMode.Impulse);
-
         // Destroy bullet after Lifetime ends
         Destroy(bulletPrefabClone, bulletLifeTime);
     }
