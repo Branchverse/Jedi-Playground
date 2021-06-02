@@ -71,6 +71,13 @@ public class PlayerStats : MonoBehaviour
 
 
     private void useForce(SteamVR_Action_Boolean action_Boolean, SteamVR_Input_Sources source){
+        var targetHand = GameObject.Find("/Player/SteamVRObjects/RightHand");
+        if (source == SteamVR_Input_Sources.LeftHand){
+            targetHand =  GameObject.Find("/Player/SteamVRObjects/LeftHand");
+        }  
+        if (targetHand.GetComponent<ClimberHand>().TouchedCount > 0) {
+            return;
+        }
         if (HandMode == 0){
             moveLightsaber(action_Boolean, source);
         } else if (HandMode == 1){
@@ -81,14 +88,11 @@ public class PlayerStats : MonoBehaviour
 
 
     private void forcePush(SteamVR_Action_Boolean action_Boolean, SteamVR_Input_Sources source){
-        var startHand = GameObject.Find("/Player/SteamVRObjects/RightHand");
-        if (source == SteamVR_Input_Sources.LeftHand){
-            startHand =  GameObject.Find("/Player/SteamVRObjects/LeftHand");
-        }  
-        GameObject Push = Instantiate(ForcePushObject, startHand.transform.position, Quaternion.Euler(new Vector3(0,0,0)));
-        Vector3 force = startHand.GetComponentInChildren<ForceDirection>().getDirection();
+        
+        GameObject Push = Instantiate(ForcePushObject, targetHand.transform.position, Quaternion.Euler(new Vector3(0,0,0)));
+        Vector3 force = targetHand.GetComponentInChildren<ForceDirection>().getDirection();
         Push.GetComponent<Rigidbody>().velocity = Vector3.Scale(force, new Vector3(20,20,20));
-        Debug.DrawRay(startHand.transform.position, Vector3.Scale(force, new Vector3(20,20,20)), Color.green, 10f);
+        Debug.DrawRay(targetHand.transform.position, Vector3.Scale(force, new Vector3(20,20,20)), Color.green, 10f);
         Debug.Log("Spawned Forceball");
     }
 
