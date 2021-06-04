@@ -5,8 +5,10 @@ using UnityEngine;
 public class forcePushScript : MonoBehaviour
 {
     public Rigidbody rb;
-    Vector3 direction;
+
     GameObject player;
+
+    private Vector3 targetVelocity;
 
     // TODO: change direction v3 to input
     void Start ()
@@ -16,9 +18,7 @@ public class forcePushScript : MonoBehaviour
         direction = player.transform.forward;
         rb.velocity = direction * 100;
         */
-
-        rb.velocity = direction * 10;
-
+        
         StartCoroutine("KillAfterTime");
     }
 
@@ -31,21 +31,29 @@ public class forcePushScript : MonoBehaviour
 
     private void OnTriggerEnter (Collider collider)
     {
+        Debug.Log("Collided with "+ collider.transform.root.gameObject.tag);
         Rigidbody bodyOfCollider = collider.gameObject.GetComponent<Rigidbody>();
         if (bodyOfCollider)
         {
-            bodyOfCollider.AddForce(direction * 3000);
+            bodyOfCollider.AddForce( GetComponent<Rigidbody>().velocity * 100);
         }
 
         // don't know if this is needed, ignores collision with player
         if (collider.tag == "Player")
         {
             Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), collider.GetComponent<Collider>());
+            return;
         }
 
         //or children of the player gameObject
         if (collider.transform.root.gameObject.tag == "Player"){
             Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), collider.GetComponent<Collider>());
+            return;
+        }
+
+        if (collider.gameObject.layer == 3){
+             Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), collider.GetComponent<Collider>());
+            return;
         }
 
         // kill on wall
@@ -53,5 +61,7 @@ public class forcePushScript : MonoBehaviour
         {
             Destroy(gameObject);
         } 
+
+        Debug.Log("Collided without issues");
     }
 }
