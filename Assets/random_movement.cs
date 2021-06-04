@@ -6,13 +6,16 @@ public class random_movement : MonoBehaviour
 {
     private Animator animator;
 
-    public float moveSpeed = 3f;
-    public float rotSpeed = 100f; //this shit doesn't work.... and idk why aaaargh
+    public float moveSpeed = -3f;
     
     private bool isWandering = false;
     private bool isRotating = false;
     private bool isWalking = false;
     int rotate = Random.Range(1, 3);
+
+    private float targetAngle;
+    private float newTargetAngle;
+    private float rotateAngle;
 
     // Start is called before the first frame update
     void Start()
@@ -23,14 +26,39 @@ public class random_movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       //var vec = new Vector3(0.0f, 0.0f, Random.Range(10.0f, 340.0f));
-         
         if(isWandering == false){
             StartCoroutine(Wander());
         }
         if(isRotating == true){
-            transform.Rotate(0.0f, 0.0f, Random.Range(0.0f, 360.0f)); 
-            isRotating = false;
+            if(targetAngle == null || targetAngle == 0.0f){
+                targetAngle = Random.Range(1.0f, 360.0f);
+                Debug.Log("targetAngle is " + targetAngle);
+            }
+
+            rotateAngle = rotateAngle + 1.0f;
+            
+            if(targetAngle <= 180.0f){
+                transform.Rotate(0.0f, 0.0f, 1.0f); 
+                Debug.Log("target smaller");
+                if(rotateAngle >= targetAngle){
+                isRotating = false;
+                targetAngle = 0.0f;
+                rotateAngle = 0.0f;
+                return;
+            }
+            }
+
+            if(targetAngle > 180.0f){
+                newTargetAngle = 360.0f - targetAngle;
+                transform.Rotate(0.0f, 0.0f, -1.0f);
+                Debug.Log("target higher subtract: " + newTargetAngle);
+                if(rotateAngle >= newTargetAngle){
+                isRotating = false;
+                targetAngle = 0.0f;
+                rotateAngle = 0.0f;
+                return;
+            }
+            }
         }
         if(isWalking == true){
             transform.position += transform.right * moveSpeed * Time.deltaTime;
@@ -67,15 +95,12 @@ public class random_movement : MonoBehaviour
         isWalking = false;
         animator.SetBool("isColliding", true);
         rotate = 2;
-        //yield return new WaitForSeconds(1);
-        //isColliding = true;
         return;
     }
 
     void OnCollisionExit(Collision other){
         Debug.Log("R2-A2 not colliding anymore");
         animator.SetBool("isColliding", false);
-        //isColliding = false;
         return;
     }
 }
