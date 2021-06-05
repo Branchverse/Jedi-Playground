@@ -223,6 +223,8 @@ GameObject:
   - component: {fileID: 11465950}
   - component: {fileID: 5004103365690547399}
   - component: {fileID: 6673289487469889140}
+  - component: {fileID: 7265208507108320156}
+  - component: {fileID: 5962141157040231414}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -317,6 +319,41 @@ MonoBehaviour:
     actionPath: 
     needsReinit: 0
   ClimberHandle: {fileID: 6693927878167917549}
+--- !u!114 &7265208507108320156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f208cb0d51f8bbe469db6ac5a4cd2b91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  JoystickInput:
+    actionPath: /actions/default/in/Touchpad
+    needsReinit: 0
+  PlayerSpeed: 1
+  PlayerGravity: 9.81
+--- !u!143 &5962141157040231414
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107946}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 1.5
+  m_Radius: 0.37
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0.75, z: 0}
 --- !u!1 &109154
 GameObject:
   m_ObjectHideFlags: 0
