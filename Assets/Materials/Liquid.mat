@@ -137,7 +137,7 @@ Material:
     - Vector1_0f82469bb7a049109b3f786d1b23e182: 0
     - Vector1_6542efc8544b44f4898f4bee11fd99df: 0
     - Vector1_73b3e9796075449892f390fac65e6727: 0.3
-    - Vector1_c42c52aff56a419384be3fd9560b4f22: 0
+    - Vector1_c42c52aff56a419384be3fd9560b4f22: 0.05
     - Vector1_f344c2330d92499795e4775c1ab1e83d: 0
     - _AORemapMax: 1
     - _AORemapMin: 0
@@ -247,17 +247,16 @@ Material:
     - _UVEmissive: 0
     - _UseEmissiveIntensity: 0
     - _UseShadowThreshold: 0
-    - _WobbleX: -0.85
-    - _WobbleZ: 0.04
+    - _WobbleX: -2
+    - _WobbleZ: 0.85
     - _ZTestDepthEqualForOpaque: 3
     - _ZTestGBuffer: 3
     - _ZTestTransparent: 4
     - _ZWrite: 1
     m_Colors:
-    - Color_1e8f8433be814ccaaf40e054928c7e81: {r: 0.24528301, g: 0.24528301, b: 0.24528301,
+    - Color_1e8f8433be814ccaaf40e054928c7e81: {r: 0.8679245, g: 0.118725546, b: 0.118725546,
         a: 0}
-    - Color_4b6c4bac538044c5b56836a0ed20b851: {r: 0.11320752, g: 0.11320752, b: 0.11320752,
-        a: 0}
+    - Color_4b6c4bac538044c5b56836a0ed20b851: {r: 0.18867922, g: 0, b: 0, a: 0}
     - Color_806bd4a2837c4ad2ab48e2bd670d164d: {r: 0.10849059, g: 0.6033398, b: 1,
         a: 0}
     - Color_c43493aea85a4fefbf676c4f780a5b5b: {r: 0.6084906, g: 0.91338974, b: 1,
