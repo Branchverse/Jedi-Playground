@@ -5,35 +5,36 @@ using static PistolController;
 
 public class BulletHandler : MonoBehaviour
 {
-    public float bulletSpeed = 4f;
-
+    public float bulletSpeed = 30f;
     public GameObject BulletTexture;
 
-    private Vector3 LastPosition;
 
+    private Vector3 LastPosition;
     private Vector3 StartPosition;
+
+
     // Start is called before the first frame update
     void Start()
     {
         StartPosition = transform.position;
-        BulletUpdate();
+        //BulletUpdate();
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         BulletUpdate();
     }
 
     void BulletUpdate()
     {
-        if (gameObject.transform.localScale.y > -1)
-        {
-            Debug.Log("Test");
-            float currentYScale = gameObject.transform.localScale.y;
-            gameObject.transform.localScale = new Vector3(gameObject.transform.localScale.x, Mathf.Clamp(currentYScale -= bulletSpeed * Time.deltaTime, -1f, 0f), gameObject.transform.localScale.z);
-        }
         LastPosition = transform.position;
+        if (gameObject.transform.localScale.y > -0.5f)
+        {
+            float currentYScale = gameObject.transform.localScale.y;
+            gameObject.transform.localScale = new Vector3(gameObject.transform.localScale.x, Mathf.Clamp(currentYScale -= bulletSpeed * Time.fixedDeltaTime, -1f, 1f), gameObject.transform.localScale.z);
+        }
+        
     }
 
 
@@ -57,16 +58,22 @@ public class BulletHandler : MonoBehaviour
         }
 
 
-
-        Destroy(gameObject);
+        
 
         RaycastHit hit;
-        Physics.Raycast(LastPosition, gameObject.GetComponent<Rigidbody>().velocity, out hit, 10);
+        Physics.Raycast(LastPosition-gameObject.GetComponent<Rigidbody>().velocity.normalized, gameObject.GetComponent<Rigidbody>().velocity, out hit, 10, ~(1<<2));
         
         
         //Debug.Log(hit.point);
         //Debug.DrawRay(StartPosition, gameObject.GetComponent<Rigidbody>().velocity, Color.magenta );
         //This does not work properly
-        Instantiate(BulletTexture, hit.point, Quaternion.Euler(hit.normal));        
+        GameObject bulletHoleClone = Instantiate(BulletTexture, hit.point, Quaternion.LookRotation(hit.normal)); 
+        Debug.Log("Bullet collided!");
+        
+        // Destroy the bullethole
+        Destroy(bulletHoleClone, 5f);   // Destroyed after 5 seconds
+        
+        // Destroy the bullet
+        Destroy(gameObject);     
     }
 }

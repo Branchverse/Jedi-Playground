@@ -54,7 +54,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2022332524902266732}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.595, y: -0.6103556, z: -5.983449}
+  m_LocalPosition: {x: -2.707, y: -0.6103556, z: -5.983449}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1135680054615749701}
@@ -91,7 +91,7 @@ Transform:
   m_GameObject: {fileID: 6215674295458541564}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 14.36, y: 3.9760556, z: -5.2900515}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 7330033453242377913}
   - {fileID: 7915495154182721459}
@@ -115,7 +115,7 @@ MonoBehaviour:
     actionPath: /actions/default/in/GrabGrip
     needsReinit: 0
   bulletSpawner: {fileID: 7915495154182721459}
-  bulletSpeed: 4
+  bulletSpeed: 30
   bulletLifeTime: 3
   bulletPrefab: {fileID: 9210101143899765707, guid: aa61cc6fef2a7854cbc15b0e3dafc07f,
     type: 3}
