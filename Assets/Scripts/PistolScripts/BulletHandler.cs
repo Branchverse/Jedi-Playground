@@ -57,6 +57,15 @@ public class BulletHandler : MonoBehaviour
             return;
         }
 
+        // Trainingsphere is getting hit
+        if(other.gameObject.GetComponentInParent<ShootSphereScript>() !=null)
+        {
+            Debug.Log("Bullet encountered a Trainingsphere");
+            Destroy(gameObject);
+            other.gameObject.GetComponentInParent<ShootSphereScript>().markSphereAsHit();
+            return;
+        }
+
 
         
 
