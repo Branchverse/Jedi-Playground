@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-4159756200983432724
+--- !u!114 &-4085124641143180284
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RedLeather
+  m_Name: "Gel\xE4nder2"
   m_Shader: {fileID: -6465566751694194690, guid: bd00b63bac466154ea8da117950430ce,
     type: 3}
   m_ShaderKeywords: _DISABLE_SSR_TRANSPARENT
@@ -40,19 +40,19 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - Texture2D_3a760016466041cb96e6e2d673ff8e13:
-        m_Texture: {fileID: 2800000, guid: 0602b6aef31ea284bb623b91b02f29e5, type: 3}
+        m_Texture: {fileID: 2800000, guid: 16281050d3fcb084694425a5e92d407a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_414b9f44b7e1440da7b9e056b949ec62:
-        m_Texture: {fileID: 2800000, guid: ffb15172bd377eb448059b8ffee4b605, type: 3}
+        m_Texture: {fileID: 2800000, guid: 05e51bee2551f6c4ca828e93d1b0293e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_5d6ba932bd48498593d3ef9216c4bfe8:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 943ef7456a81a3d4493bbdafef5b61f2, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_92d7b9d9c3d04eac947657757abd774e:
-        m_Texture: {fileID: 2800000, guid: e7bad468ebf008841b9e792f034cfb04, type: 3}
+        m_Texture: {fileID: 2800000, guid: 6427484705f7b524bba3c8275131932b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _AnisotropyMap:
@@ -111,18 +111,6 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_25056bcb389b4ef6a68c3c0940639d87_Texture_1:
-        m_Texture: {fileID: 2800000, guid: b59058be0b4a9814882ec43180b9528c, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_4a8e65c2fd0748a887130504b8835c54_Texture_1:
-        m_Texture: {fileID: 2800000, guid: 40ed43f73c39da744b18f986fee60af6, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_d38caf39fcc745b1a8ccc28be065d71e_Texture_1:
-        m_Texture: {fileID: 2800000, guid: 404eafcfe6bf21642ae82edddbb38dce, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _SpecularColorMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -160,10 +148,9 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_1b8564d57aed4db890104c1d5885ade1: 0
-    - Vector1_51bb39132e184d6484eb9936f97fa22f: 0
-    - Vector1_c966c5b42e7e46ec842e54b2d85e18c5: 1.62
-    - Vector1_eed94e23a47d4cbe97f271dfef4f490e: 0.746
+    - Vector1_1b8564d57aed4db890104c1d5885ade1: 1
+    - Vector1_c966c5b42e7e46ec842e54b2d85e18c5: 0.65
+    - Vector1_eed94e23a47d4cbe97f271dfef4f490e: 0.578
     - _AORemapMax: 1
     - _AORemapMin: 0
     - _ATDistance: 1
