@@ -126,5 +126,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b3c04ce31d0bae4d9d3c0355e7a5db7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletSpeed: 30
   BulletTexture: {fileID: 1257844600195949095, guid: bd15a22caaff1004e90fbc4c5dd048c5,
     type: 3}
+  colliders:
+  - {fileID: 6215674295458541564, guid: d3b683a89befbb34dad1b8e98f7da274, type: 3}
+  - {fileID: 107946, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}

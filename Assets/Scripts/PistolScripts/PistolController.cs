@@ -56,10 +56,10 @@ public class PistolController : MonoBehaviour
     {
         // Create bullet with proper rotation
         GameObject bulletPrefabClone = Instantiate(bulletPrefab, bulletSpawner.position, bulletSpawner.rotation);
-        bulletPrefabClone.transform.Rotate(90f, 0, 0); //unclean methode but I didn't manage to spawn it with the correct rotation
-        Rigidbody bulletPrefabCloneRB = bulletPrefabClone.GetComponent<Rigidbody>();
+        // bulletPrefabClone.transform.Rotate(90f, 0, 0); //unclean methode but I didn't manage to spawn it with the correct rotation
+         Rigidbody bulletPrefabCloneRB = bulletPrefabClone.GetComponent<Rigidbody>();
         // Give bullet speed
-        bulletPrefabCloneRB.AddForce(bulletSpawner.forward * bulletSpeed, ForceMode.Impulse);
+         bulletPrefabCloneRB.AddForce(bulletSpawner.forward * bulletSpeed, ForceMode.Impulse);
         // Destroy bullet after Lifetime ends
         Destroy(bulletPrefabClone, bulletLifeTime);
     }

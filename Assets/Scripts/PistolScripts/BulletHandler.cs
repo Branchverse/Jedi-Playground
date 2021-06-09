@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using static PistolController;
 
@@ -7,15 +8,30 @@ public class BulletHandler : MonoBehaviour
 {
     public float bulletSpeed = 30f;
     public GameObject BulletTexture;
-
+    public GameObject[] colliders;
 
     private Vector3 LastPosition;
     private Vector3 StartPosition;
+    private Vector3 bulletSpawnerTransformForward;
 
-
+    // void BulletHandler()
+    // {
+    //     bulletSpawnerTransformForward = direction;
+    // }
+    
+    void Awake()
+    {
+        Debug.LogError("Awake");
+        gameObject.transform.Rotate(90f, 0, 0);
+        // Bullet Speeeeeeed
+        //gameObject.GetComponent<Rigidbody>().AddForce(bulletSpawner.forward * bulletSpeed, ForceMode.Impulse);
+        // Prevent Bullet from colliding with Colliders in the Array
+        reactivatePlayerCollisions(true);
+    }
     // Start is called before the first frame update
     void Start()
     {
+        Debug.LogError("Start");
         StartPosition = transform.position;
         //BulletUpdate();
     }
@@ -37,12 +53,24 @@ public class BulletHandler : MonoBehaviour
         
     }
 
+    public void reactivatePlayerCollisions(bool ignore)
+    {
+        foreach(GameObject obj in colliders)
+        {
+            Collider[] childrenColliders = obj.GetComponentsInChildren<Collider>();
+            foreach(Collider coll in childrenColliders)
+            {
+            Debug.Log(coll.GetComponent<Collider>() + " Is being ignored now");
+            Physics.IgnoreCollision(GetComponent<Collider>(), coll.GetComponent<Collider>(), ignore);
+            }
+        }
+    }
 
     void OnTriggerEnter(Collider other){ 
-        
+        Debug.LogError("Collided");
         //pistol may not shoot itself
         if (other.gameObject.GetComponent<PistolController>() != null || other.gameObject.GetComponent<WeaponManager>() != null){
-            Debug.Log("returned");
+            Debug.Log("returned because it hit " + other.gameObject.GetComponent<Collider>());
             return;
         }
 
