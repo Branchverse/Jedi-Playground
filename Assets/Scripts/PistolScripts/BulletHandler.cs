@@ -12,6 +12,7 @@ public class BulletHandler : MonoBehaviour
     private Vector3 LastPosition;
     private Vector3 StartPosition;
     private Vector3 bulletSpawnerTransformForward;
+    private bool alreadyReflected = false;
 
     // void BulletHandler()
     // {
@@ -20,7 +21,6 @@ public class BulletHandler : MonoBehaviour
     
     void Awake()
     {
-        Debug.LogError("Awake");
         gameObject.transform.Rotate(90f, 0, 0);
         colliders[0] = GameObject.Find("Player");
         colliders[1] = GameObject.Find("Pistol");
@@ -30,7 +30,6 @@ public class BulletHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.LogError("Start");
         StartPosition = transform.position;
         //BulletUpdate();
     }
@@ -68,7 +67,8 @@ public class BulletHandler : MonoBehaviour
     }
 
     void OnTriggerEnter(Collider other){ 
-        Debug.LogError("Collided");
+        Debug.Log("Collided with: " + other);
+        Debug.Log("Bullet was already reflected: " + alreadyReflected);
         //pistol may not shoot itself
         if (other.gameObject.GetComponent<PistolController>() != null || other.gameObject.GetComponent<WeaponManager>() != null || other.gameObject.tag == "Hand"){
             Debug.Log("returned because it hit " + other.gameObject.GetComponent<Collider>());
@@ -77,8 +77,14 @@ public class BulletHandler : MonoBehaviour
 
         //lightsaber reflects shots    
         if (other.gameObject.GetComponent<Reflecting>() != null){
-            Debug.Log("reflecting this bullet hehe");
-            gameObject.GetComponent<Rigidbody>().velocity = gameObject.GetComponent<Rigidbody>().velocity * -1;
+            if(!alreadyReflected)
+            {
+                alreadyReflected = true;
+                Debug.Log("reflecting this bullet hehe");
+                gameObject.GetComponent<Rigidbody>().velocity = gameObject.GetComponent<Rigidbody>().velocity * -1;
+            }
+            
+            
             if (other.gameObject.GetComponent<Reflecting>().IsActive){
                 Debug.Log("Reflector active");
                 //fill this
@@ -106,7 +112,7 @@ public class BulletHandler : MonoBehaviour
         //Debug.DrawRay(StartPosition, gameObject.GetComponent<Rigidbody>().velocity, Color.magenta );
         //This does not work properly
         GameObject bulletHoleClone = Instantiate(BulletTexture, hit.point, Quaternion.LookRotation(hit.normal)); 
-        Debug.Log("Bullet collided!");
+        Debug.Log("BulletHole generated");
         
         // Destroy the bullethole
         Destroy(bulletHoleClone, 5f);   // Destroyed after 5 seconds

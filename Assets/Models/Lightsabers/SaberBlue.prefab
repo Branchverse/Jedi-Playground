@@ -48,6 +48,7 @@ MonoBehaviour:
   _forceAppliedToCut: 3
   extendSpeed: 0.1
   maximumSwordSize: 7
+  weaponTurnedOff: 0
   activateBlade:
     actionPath: 
     needsReinit: 0
@@ -124,6 +125,7 @@ MonoBehaviour:
   _forceAppliedToCut: 3
   extendSpeed: 0.1
   maximumSwordSize: 10
+  weaponTurnedOff: 0
   activateBlade:
     actionPath: /actions/default/in/GrabGrip
     needsReinit: 0
@@ -528,7 +530,7 @@ GameObject:
   - component: {fileID: 2799941150745118519}
   - component: {fileID: 508102040415966264}
   - component: {fileID: 8742200819331465249}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DeflectHitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -722,6 +724,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Blade
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d122b058ea637564b9937b70b0b60d86,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d122b058ea637564b9937b70b0b60d86, type: 3}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5133205781250670875}
   - component: {fileID: 4194307842010805353}
   - component: {fileID: 486311012620798051}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -230,7 +230,7 @@ GameObject:
   - component: {fileID: 8944167171571600492}
   - component: {fileID: 7171663836575674838}
   - component: {fileID: 5539036799824129417}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: redBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -346,6 +346,3 @@ MonoBehaviour:
   bulletSpeed: 30
   BulletTexture: {fileID: 1257844600195949095, guid: bd15a22caaff1004e90fbc4c5dd048c5,
     type: 3}
-  colliders:
-  - {fileID: 0}
-  - {fileID: 0}
