@@ -41,7 +41,7 @@ public class BulletHandler : MonoBehaviour
     void OnTriggerEnter(Collider other){ 
         
         //pistol may not shoot itself
-        if (other.gameObject.GetComponent<PistolController>() != null || other.gameObject.GetComponent<WeaponManager>() != null){
+        if (other.gameObject.GetComponent<PistolController>() != null || other.gameObject.GetComponent<WeaponManager>() != null || other.gameObject.tag == "Hand"){
             Debug.Log("returned");
             return;
         }
@@ -67,7 +67,7 @@ public class BulletHandler : MonoBehaviour
         }
 
 
-        
+        Debug.Log(other.gameObject);
 
         RaycastHit hit;
         Physics.Raycast(LastPosition-gameObject.GetComponent<Rigidbody>().velocity.normalized, gameObject.GetComponent<Rigidbody>().velocity, out hit, 10, ~(1<<2));
@@ -76,13 +76,13 @@ public class BulletHandler : MonoBehaviour
         //Debug.Log(hit.point);
         //Debug.DrawRay(StartPosition, gameObject.GetComponent<Rigidbody>().velocity, Color.magenta );
         //This does not work properly
-        //GameObject bulletHoleClone = Instantiate(BulletTexture, hit.point, Quaternion.LookRotation(hit.normal)); 
+        GameObject bulletHoleClone = Instantiate(BulletTexture, hit.point, Quaternion.LookRotation(hit.normal)); 
         Debug.Log("Bullet collided!");
         
         // Destroy the bullethole
-        //Destroy(bulletHoleClone, 5f);   // Destroyed after 5 seconds
+        Destroy(bulletHoleClone, 5f);   // Destroyed after 5 seconds
         
         // Destroy the bullet
-        Destroy(gameObject,5f);     
+        Destroy(gameObject);     
     }
 }
