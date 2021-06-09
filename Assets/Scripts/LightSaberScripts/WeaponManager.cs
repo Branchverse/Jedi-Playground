@@ -10,7 +10,7 @@ public class WeaponManager : MonoBehaviour
     [SerializeField]
     [Tooltip("The blade object")]
     private GameObject _blade;
-
+     
     [SerializeField]
     [Tooltip("The empty game object located at the tip of the blade")]
     private GameObject _tip = null;
@@ -18,29 +18,29 @@ public class WeaponManager : MonoBehaviour
     [SerializeField]
     [Tooltip("The empty game object located at the base of the blade")]
     private GameObject _base = null;
-
+    
     [SerializeField]
     [Tooltip("The amount of force applied to each side of a slice")]
     private float _forceAppliedToCut = 3f;
 
     [SerializeField]
     [Tooltip("The extend speed in seconds.")]
-    private float extendSpeed = 0.05f;
+    private float extendSpeed = 0.05f ;
 
     [SerializeField]
     [Tooltip("The maximum extension of the Blade.")]
     private float maximumSwordSize;
 
     private float minimumSwordSize = 0.0f;
-    private bool weaponTurnedOn = true;
+    private bool weaponTurnedOn;
     public SteamVR_Action_Boolean activateBlade;
     private Interactable interactable;
     private Vector3 _triggerEnterTipPosition;
     private Vector3 _triggerEnterBasePosition;
-    private Vector3 _triggerExitTipPosition;
-
+    private Vector3 _triggerExitTipPosition; 
+    
     // Start is called before the first frame update   
-    void Start()
+    void Start() 
     {
         interactable = GetComponent<Interactable>();
     }
@@ -50,27 +50,24 @@ public class WeaponManager : MonoBehaviour
         UpdateWeapon();
     }
 
-    //here are testing variables not to be used in the final produkt
-    int i = 0;
-    Vector3 vector = new Vector3(-1.0f, 0f);
+//here are testing variables not to be used in the final produkt
+int i = 0;
+Vector3 vector = new Vector3(-1.0f,0f);
     // Update is called once per frame
     void Update()
-    {
+    {   
         //if(i%120 == 0){weaponTurnedOn = !weaponTurnedOn;Debug.Log("Weapon state changed");}i++; //for blade function tests without input. 
-        if (interactable == null)
-        {
+        if (interactable == null){
             return;
         }
-        if (interactable.attachedToHand != null)
-        {
-            SteamVR_Input_Sources source = interactable.attachedToHand.handType;
-            FindObjectOfType<PlayerStats>().setLastLightsaber(transform.gameObject);
-            if (activateBlade[source].stateDown)
-            {
-                weaponTurnedOn = !weaponTurnedOn;
-                Debug.Log("Weapon state changed");
-            }
-        }
+         if (interactable.attachedToHand != null){
+             SteamVR_Input_Sources source = interactable.attachedToHand.handType;
+             FindObjectOfType<PlayerStats>().setLastLightsaber(transform.gameObject);
+             if (activateBlade[source].stateDown){
+                 weaponTurnedOn = !weaponTurnedOn;
+                 Debug.Log("Weapon state changed");
+             }
+         }
         UpdateWeapon();
     }
 
@@ -86,8 +83,7 @@ public class WeaponManager : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.GetComponent<Sliceable>() == null)
-        {
+        if (other.GetComponent<Sliceable>() == null){
             return;
         }
         Debug.Log("Exit Triggered");
@@ -137,20 +133,18 @@ public class WeaponManager : MonoBehaviour
         float extendDelta = maximumSwordSize / extendSpeed;
         float currentSize = _blade.transform.localScale.y;
 
-        if (weaponTurnedOn)
+        if(weaponTurnedOn)
         {
             _blade.transform.localScale = new Vector3(_blade.transform.localScale.x, Mathf.Clamp(currentSize + (extendDelta * -Time.deltaTime), minimumSwordSize, maximumSwordSize), _blade.transform.localScale.z);
-
-            if (_blade.transform.localScale.y <= 0.2)
+        
+            if(_blade.transform.localScale.y <= 0.1)
             {
                 FindObjectOfType<AudioManager>().StopPlaying("saber_humming");
                 FindObjectOfType<AudioManager>().Play("saber_turn_off");
                 _blade.SetActive(false);
             }
-            foreach (Transform eachChild in transform)
-            {
-                if (eachChild.name == "DeflectHitbox")
-                {
+            foreach (Transform eachChild in transform){
+                if (eachChild.name == "DeflectHitbox"){
                     eachChild.GetComponent<Reflecting>().IsActive = true;
                     break;
                 }
@@ -158,18 +152,16 @@ public class WeaponManager : MonoBehaviour
         }
         else
         {
-            if (_blade.activeSelf == false)
+            if(_blade.activeSelf==false)
             {
                 FindObjectOfType<AudioManager>().Play("saber_turn_on");
                 FindObjectOfType<AudioManager>().Play("saber_humming");
                 _blade.SetActive(true);
             }
             _blade.transform.localScale = new Vector3(_blade.transform.localScale.x, Mathf.Clamp(currentSize + (extendDelta * Time.deltaTime), minimumSwordSize, maximumSwordSize), _blade.transform.localScale.z);
-
-            foreach (Transform eachChild in transform)
-            {
-                if (eachChild.name == "DeflectHitbox")
-                {
+            
+            foreach (Transform eachChild in transform){
+                if (eachChild.name == "DeflectHitbox"){
                     eachChild.GetComponent<Reflecting>().IsActive = false;
                 }
             }
