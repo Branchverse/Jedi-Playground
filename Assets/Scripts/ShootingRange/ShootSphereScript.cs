@@ -27,7 +27,7 @@ public class ShootSphereScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown("p")){activateSphereTraining();}
+        if(Input.GetKeyDown("l")){activateSphereTraining();}
     }
     public void activateSphereTraining()
     {
