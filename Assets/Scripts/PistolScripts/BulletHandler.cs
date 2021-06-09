@@ -12,11 +12,16 @@ public class BulletHandler : MonoBehaviour
     private Vector3 LastPosition;
 
     private Vector3 StartPosition;
+
+    [SerializeField]
+    private AudioSource shootSound;
+
     // Start is called before the first frame update
     void Start()
     {
         StartPosition = transform.position;
         BulletUpdate();
+        shootSound.Play();
     }
 
     // Update is called once per frame
