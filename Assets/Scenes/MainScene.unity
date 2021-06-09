@@ -13298,6 +13298,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 238476345724447529, guid: d3b683a89befbb34dad1b8e98f7da274,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1135680054615749701, guid: d3b683a89befbb34dad1b8e98f7da274,
         type: 3}
       propertyPath: m_RootOrder
@@ -13353,10 +13358,35 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1186811888201387361, guid: d3b683a89befbb34dad1b8e98f7da274,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2022332524902266732, guid: d3b683a89befbb34dad1b8e98f7da274,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5121038256000157864, guid: d3b683a89befbb34dad1b8e98f7da274,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5204374202836250926, guid: d3b683a89befbb34dad1b8e98f7da274,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6215674295458541564, guid: d3b683a89befbb34dad1b8e98f7da274,
         type: 3}
       propertyPath: m_Name
       value: Pistol
+      objectReference: {fileID: 0}
+    - target: {fileID: 6215674295458541564, guid: d3b683a89befbb34dad1b8e98f7da274,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3b683a89befbb34dad1b8e98f7da274, type: 3}
@@ -19805,6 +19835,16 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 2799941150745118519, guid: 79f30c7baf59f68468ea82a38473449d,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3359126146926893393, guid: 79f30c7baf59f68468ea82a38473449d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 3441095255025812787, guid: 79f30c7baf59f68468ea82a38473449d,
         type: 3}
       propertyPath: m_Name
@@ -19899,6 +19939,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Intensity
       value: 2.6461437
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742200819331465249, guid: 79f30c7baf59f68468ea82a38473449d,
+        type: 3}
+      propertyPath: IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79f30c7baf59f68468ea82a38473449d, type: 3}
