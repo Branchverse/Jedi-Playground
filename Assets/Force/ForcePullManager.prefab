@@ -47,4 +47,8 @@ MonoBehaviour:
     actionSetPath: /actions/default
   leftHand: 1
   rightHand: 2
-  targetHand: {fileID: 0}
+  targetHandPrimary: {fileID: 0}
+  targetHandSecondary: {fileID: 0}
+  HandMode: 0
+  ForcePushObject: {fileID: 1967563177001887611, guid: a1eb8d11fd35a5e4e8d3d3804879b1a1,
+    type: 3}

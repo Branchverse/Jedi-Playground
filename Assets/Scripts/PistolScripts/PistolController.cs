@@ -15,7 +15,7 @@ public class PistolController : MonoBehaviour
 
     [SerializeField]
     [Tooltip("Bullet flight speed.")]
-    private float bulletSpeed = 4f; //make sure to also change bulletSpeed in BulletHandler
+    private float bulletSpeed = 30f; //make sure to also change bulletSpeed in BulletHandler
 
     [SerializeField]
     [Tooltip("Bullet will disappear after this time in seconds.")]
@@ -33,10 +33,13 @@ public class PistolController : MonoBehaviour
     }
 
     // Update is called once per frame
+    //int i = 0;
     void Update()
     {
+        //i++;
+        //if(i > 30){Shoot(); i = 1;}
         if (Input.GetKeyDown("space")) { Shoot(); } //until VR tester implements the correct key this will be the way to go
-         if (interactable.attachedToHand != null)
+        if (interactable.attachedToHand != null)
         {
             SteamVR_Input_Sources source = interactable.attachedToHand.handType;
 
@@ -53,11 +56,8 @@ public class PistolController : MonoBehaviour
     {
         // Create bullet with proper rotation
         GameObject bulletPrefabClone = Instantiate(bulletPrefab, bulletSpawner.position, bulletSpawner.rotation);
-        bulletPrefabClone.transform.Rotate(90f, 0, 0); //unclean methode but I didn't manage to spawn it with the correct rotation
-        Rigidbody bulletPrefabCloneRB = bulletPrefabClone.GetComponent<Rigidbody>();
         // Give bullet speed
-        bulletPrefabCloneRB.AddForce(bulletSpawner.forward * bulletSpeed, ForceMode.Impulse);
-
+        bulletPrefabClone.GetComponent<Rigidbody>().AddForce(bulletSpawner.forward * bulletSpeed, ForceMode.Impulse);
         // Destroy bullet after Lifetime ends
         Destroy(bulletPrefabClone, bulletLifeTime);
     }
