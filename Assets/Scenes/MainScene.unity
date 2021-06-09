@@ -13372,21 +13372,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -7820831606037708569, guid: d3b683a89befbb34dad1b8e98f7da274,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 145807404539554616, guid: d3b683a89befbb34dad1b8e98f7da274,
-        type: 3}
-      propertyPath: hideHandOnAttach
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 145807404539554616, guid: d3b683a89befbb34dad1b8e98f7da274,
-        type: 3}
-      propertyPath: activateActionSetOnAttach.actionSetPath
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 1135680054615749701, guid: d3b683a89befbb34dad1b8e98f7da274,
         type: 3}
       propertyPath: m_RootOrder
@@ -13446,11 +13431,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pistol
-      objectReference: {fileID: 0}
-    - target: {fileID: 6613625774773616592, guid: d3b683a89befbb34dad1b8e98f7da274,
-        type: 3}
-      propertyPath: shoot.actionPath
-      value: /actions/default/in/GrabPinch
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3b683a89befbb34dad1b8e98f7da274, type: 3}
