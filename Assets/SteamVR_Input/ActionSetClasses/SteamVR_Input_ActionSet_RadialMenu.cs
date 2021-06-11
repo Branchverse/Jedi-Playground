@@ -14,22 +14,30 @@ namespace Valve.VR
     using UnityEngine;
     
     
-    public class SteamVR_Input_ActionSet_VR_Game : Valve.VR.SteamVR_ActionSet
+    public class SteamVR_Input_ActionSet_RadialMenu : Valve.VR.SteamVR_ActionSet
     {
         
-        public virtual SteamVR_Action_Boolean GrabAction
+        public virtual SteamVR_Action_Vector2 RadialPosition
         {
             get
             {
-                return SteamVR_Actions.vR_Game_GrabAction;
+                return SteamVR_Actions.radialMenu_RadialPosition;
             }
         }
         
-        public virtual SteamVR_Action_Boolean WieldedObjectInteract
+        public virtual SteamVR_Action_Boolean CloseRadial
         {
             get
             {
-                return SteamVR_Actions.vR_Game_WieldedObjectInteract;
+                return SteamVR_Actions.radialMenu_CloseRadial;
+            }
+        }
+        
+        public virtual SteamVR_Action_Boolean SelectOption
+        {
+            get
+            {
+                return SteamVR_Actions.radialMenu_SelectOption;
             }
         }
     }
