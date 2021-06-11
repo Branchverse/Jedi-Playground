@@ -310,8 +310,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18c7674e7422b6d4290051194b6025bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RightHand: {fileID: 5841497859388345690}
-  LeftHand: {fileID: 2054816182988088260}
+  RightHand: {fileID: 0}
+  LeftHand: {fileID: 0}
   ToggleGripButton:
     actionPath: /actions/default/in/GrabPinch
     needsReinit: 0
@@ -1069,7 +1069,6 @@ GameObject:
   - component: {fileID: 11450312}
   - component: {fileID: 114000011273627542}
   - component: {fileID: 114000011734077242}
-  - component: {fileID: 2054816182988088260}
   - component: {fileID: 8324256933474412154}
   m_Layer: 26
   m_Name: LeftHand
@@ -1201,21 +1200,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967039
   hand: {fileID: 0}
---- !u!114 &2054816182988088260
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 144230}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87f5e6cf7c2a62b48ac4a45554ee384d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Hand: 1
-  TouchedCount: 0
-  grabbing: 0
 --- !u!135 &8324256933474412154
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1241,7 +1225,6 @@ GameObject:
   - component: {fileID: 11401046}
   - component: {fileID: 114000011957598740}
   - component: {fileID: 114000010591715100}
-  - component: {fileID: 5841497859388345690}
   - component: {fileID: 4605922064736558778}
   m_Layer: 26
   m_Name: RightHand
@@ -1373,21 +1356,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967039
   hand: {fileID: 0}
---- !u!114 &5841497859388345690
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 160596}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87f5e6cf7c2a62b48ac4a45554ee384d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Hand: 2
-  TouchedCount: 0
-  grabbing: 0
 --- !u!135 &4605922064736558778
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2883,10 +2851,10 @@ MonoBehaviour:
   rotateLeftFX: {fileID: 1000011982216214}
   snapLeftAction:
     actionPath: /actions/default/in/SnapTurnLeft
-    needsReinit: 0
+    needsReinit: 1
   snapRightAction:
     actionPath: /actions/default/in/SnapTurnRight
-    needsReinit: 0
+    needsReinit: 1
   fadeScreen: 1
   fadeTime: 0.1
   screenFadeColor: {r: 0, g: 0, b: 0, a: 1}
