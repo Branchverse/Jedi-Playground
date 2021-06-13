@@ -222,7 +222,6 @@ GameObject:
   - component: {fileID: 447954}
   - component: {fileID: 11465950}
   - component: {fileID: 5004103365690547399}
-  - component: {fileID: 6673289487469889140}
   - component: {fileID: 7265208507108320156}
   - component: {fileID: 5962141157040231414}
   m_Layer: 0
@@ -298,27 +297,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &6673289487469889140
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 107946}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18c7674e7422b6d4290051194b6025bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RightHand: {fileID: 0}
-  LeftHand: {fileID: 0}
-  ToggleGripButton:
-    actionPath: /actions/default/in/GrabPinch
-    needsReinit: 0
-  position:
-    actionPath: 
-    needsReinit: 0
-  ClimberHandle: {fileID: 6693927878167917549}
 --- !u!114 &7265208507108320156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3051,6 +3029,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ForceTracker
+      objectReference: {fileID: 0}
+    - target: {fileID: 2152639547641849672, guid: 1cdc3a4be197c3e4d9e119ac2e08bdda,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 2152639547641849672, guid: 1cdc3a4be197c3e4d9e119ac2e08bdda,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.1001
+      objectReference: {fileID: 0}
+    - target: {fileID: 2152639547641849672, guid: 1cdc3a4be197c3e4d9e119ac2e08bdda,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.0931
       objectReference: {fileID: 0}
     - target: {fileID: 4368455351059304986, guid: 1cdc3a4be197c3e4d9e119ac2e08bdda,
         type: 3}

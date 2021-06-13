@@ -6,11 +6,13 @@ TagManager:
   tags:
   - Hand
   - Pistol
+  - projectile
+  - FxTemporaire
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - PlayerLayer
   - Water
   - UI
   - Post Processing

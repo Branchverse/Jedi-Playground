@@ -18,8 +18,8 @@ public class ForceDirection : MonoBehaviour
             }
         }
         */
-        Debug.Log("Startposition: "+ this.gameObject.transform.GetChild(0).transform.position);
-        Debug.DrawRay(this.gameObject.transform.GetChild(0).transform.position, (end-start) * 100 , Color.green, 15f);
+        //Debug.Log("Startposition: "+ this.gameObject.transform.GetChild(0).transform.position);
+        //Debug.DrawRay(this.gameObject.transform.GetChild(0).transform.position, (end-start) * 100 , Color.green, 15f);
         return end-start;
     }
 }
