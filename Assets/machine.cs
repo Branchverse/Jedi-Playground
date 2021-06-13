@@ -28,7 +28,7 @@ public class machine : MonoBehaviour
                 Debug.Log("gecalled");
                 /* GetComponent<Rigidbody>().useGravity = false;
                 GetComponent<Rigidbody>().velocity = new Vector3(0,0,0); */
-                transform.position = destination;
+                transform.position = Vector3.MoveTowards(transform.position, destination, Time.deltaTime * speed);
             }
         }
 }
