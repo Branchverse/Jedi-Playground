@@ -38,6 +38,9 @@ public class WeaponManager : MonoBehaviour
     private Vector3 _triggerEnterTipPosition;
     private Vector3 _triggerEnterBasePosition;
     private Vector3 _triggerExitTipPosition; 
+
+    [SerializeField]
+    private AudioSource turnOnSound, turnOffSound, hummingSound, cuttingSound;
     
     // Start is called before the first frame update   
     void Start() 
@@ -73,8 +76,12 @@ Vector3 vector = new Vector3(-1.0f,0f);
 
     private void OnTriggerEnter(Collider other)
     {
-        FindObjectOfType<AudioManager>().StopPlaying("saber_humming");
-        FindObjectOfType<AudioManager>().Play("saber_cut");
+        // FindObjectOfType<AudioManager>().StopPlaying("saber_humming");
+        // FindObjectOfType<AudioManager>().Play("saber_cut");
+        hummingSound.Stop();
+        cuttingSound.Play();
+        // cuttingSound.loop = true;
+
         Debug.Log("Enter Triggered");
         Debug.Log(other);
         _triggerEnterTipPosition = _tip.transform.position;
@@ -120,8 +127,11 @@ Vector3 vector = new Vector3(-1.0f,0f);
         GameObject[] slices = Slicer.Slice(plane, other.gameObject);
         Destroy(other.gameObject);
 
-        FindObjectOfType<AudioManager>().StopPlaying("saber_cut");
-        FindObjectOfType<AudioManager>().Play("saber_humming");
+        // FindObjectOfType<AudioManager>().StopPlaying("saber_cut");
+        // FindObjectOfType<AudioManager>().Play("saber_humming");
+        cuttingSound.Stop();
+        hummingSound.Play();
+        hummingSound.loop = true;
 
         Rigidbody rigidbody = slices[1].GetComponent<Rigidbody>();
         Vector3 newNormal = transformedNormal + Vector3.up * _forceAppliedToCut;
@@ -139,8 +149,10 @@ Vector3 vector = new Vector3(-1.0f,0f);
         
             if(_blade.transform.localScale.y <= 0.1)
             {
-                FindObjectOfType<AudioManager>().StopPlaying("saber_humming");
-                FindObjectOfType<AudioManager>().Play("saber_turn_off");
+                // FindObjectOfType<AudioManager>().StopPlaying("saber_humming");
+                // FindObjectOfType<AudioManager>().Play("saber_turn_off");
+                hummingSound.Stop();
+                turnOffSound.Play();
                 _blade.SetActive(false);
             }
             foreach (Transform eachChild in transform){
@@ -154,8 +166,11 @@ Vector3 vector = new Vector3(-1.0f,0f);
         {
             if(_blade.activeSelf==false)
             {
-                FindObjectOfType<AudioManager>().Play("saber_turn_on");
-                FindObjectOfType<AudioManager>().Play("saber_humming");
+                // FindObjectOfType<AudioManager>().Play("saber_turn_on");
+                // FindObjectOfType<AudioManager>().Play("saber_humming");
+                turnOnSound.Play();
+                hummingSound.Play();
+                hummingSound.loop = true;
                 _blade.SetActive(true);
             }
             _blade.transform.localScale = new Vector3(_blade.transform.localScale.x, Mathf.Clamp(currentSize + (extendDelta * Time.deltaTime), minimumSwordSize, maximumSwordSize), _blade.transform.localScale.z);

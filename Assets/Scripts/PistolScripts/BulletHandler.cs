@@ -14,6 +14,9 @@ public class BulletHandler : MonoBehaviour
     private Vector3 bulletSpawnerTransformForward;
     private bool alreadyReflected = false;
 
+    [SerializeField]
+    private AudioSource shootSound;
+
     // void BulletHandler()
     // {
     //     bulletSpawnerTransformForward = direction;
@@ -27,11 +30,14 @@ public class BulletHandler : MonoBehaviour
         // Prevent Bullet from colliding with Colliders in the Array
         reactivatePlayerCollisions(true);
     }
+
     // Start is called before the first frame update
     void Start()
     {
         StartPosition = transform.position;
         //BulletUpdate();
+
+        shootSound.Play();
     }
 
     // Update is called once per frame
