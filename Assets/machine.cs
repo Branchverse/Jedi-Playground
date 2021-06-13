@@ -23,8 +23,12 @@ public class machine : MonoBehaviour
     }
 
     private void OnTriggerEnter (Collider target){
+        Debug.Log("nicht gecalled");
             if( target.tag == "box" && interactable.attachedToHand == null){
-                transform.position = Vector3.MoveTowards(transform.position, target.bounds.center, speed * Time.deltaTime);
+                Debug.Log("gecalled");
+                /* GetComponent<Rigidbody>().useGravity = false;
+                GetComponent<Rigidbody>().velocity = new Vector3(0,0,0); */
+                transform.position = destination;
             }
         }
 }

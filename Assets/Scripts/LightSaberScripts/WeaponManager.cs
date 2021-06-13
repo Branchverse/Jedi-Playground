@@ -32,7 +32,7 @@ public class WeaponManager : MonoBehaviour
     private float maximumSwordSize;
 
     private float minimumSwordSize = 0.0f;
-    public bool weaponTurnedOff = false;
+    public bool weaponTurnedOff = true;
     public SteamVR_Action_Boolean activateBlade;
     private Interactable interactable;
     private Vector3 _triggerEnterTipPosition;
@@ -64,7 +64,7 @@ Vector3 vector = new Vector3(-1.0f,0f);
              SteamVR_Input_Sources source = interactable.attachedToHand.handType;
              FindObjectOfType<PlayerStats>().setLastLightsaber(transform.gameObject);
              if (activateBlade[source].stateDown){
-                 weaponTurnedOff = !weaponTurnedOff;
+                 //weaponTurnedOff = !weaponTurnedOff;
                  Debug.Log("Weapon state changed");
              }
          }
@@ -128,7 +128,7 @@ Vector3 vector = new Vector3(-1.0f,0f);
         rigidbody.AddForce(newNormal, ForceMode.Impulse);
     }
 
-    void UpdateWeapon()
+    public void UpdateWeapon()
     {
         float extendDelta = maximumSwordSize / extendSpeed;
         float currentSize = _blade.transform.localScale.y;
