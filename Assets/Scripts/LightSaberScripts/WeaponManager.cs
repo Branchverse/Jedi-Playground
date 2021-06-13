@@ -76,10 +76,14 @@ Vector3 vector = new Vector3(-1.0f,0f);
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Collidign with" + other.transform.name);
         // FindObjectOfType<AudioManager>().StopPlaying("saber_humming");
         // FindObjectOfType<AudioManager>().Play("saber_cut");
-        hummingSound.Stop();
-        cuttingSound.Play();
+        if (other.transform.root.GetComponent<WeaponManager>() != null && other.transform.root.GetComponent<Player>() != null && other.transform.root.GetComponent<Hand>() != null ){
+            hummingSound.Stop();
+            cuttingSound.Play();
+        }
+        
         // cuttingSound.loop = true;
 
         Debug.Log("Enter Triggered");
