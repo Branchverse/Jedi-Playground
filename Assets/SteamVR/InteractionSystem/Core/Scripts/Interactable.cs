@@ -93,7 +93,7 @@ namespace Valve.VR.InteractionSystem
         public bool wasHovering { get; protected set; }
 
         [SerializeField]
-        private AudioSource pickUpSound, dropSound;
+        private AudioSource pickUpSound;
 
 
         private void Awake()
@@ -301,7 +301,6 @@ namespace Valve.VR.InteractionSystem
         {
             if (activateActionSetOnAttach != null)
                 activateActionSetOnAttach.Activate(hand.handType);
-                pickUpSound.Play();
 
             if (onAttachedToHand != null)
             {
@@ -314,6 +313,8 @@ namespace Valve.VR.InteractionSystem
             }
 
             attachedToHand = hand;
+
+            pickUpSound.Play();
         }
 
         protected virtual void OnDetachedFromHand(Hand hand)
@@ -325,7 +326,6 @@ namespace Valve.VR.InteractionSystem
                      hand.otherHand.currentAttachedObjectInfo.Value.interactable.activateActionSetOnAttach != this.activateActionSetOnAttach))
                 {
                     activateActionSetOnAttach.Deactivate(hand.handType);
-                    dropSound.Play();
                 }
             }
 
