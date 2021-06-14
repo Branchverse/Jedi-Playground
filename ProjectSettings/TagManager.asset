@@ -8,6 +8,7 @@ TagManager:
   - Pistol
   - projectile
   - FxTemporaire
+  - Double
   layers:
   - Default
   - TransparentFX
