@@ -38,6 +38,9 @@ public class WeaponManager : MonoBehaviour
     private Vector3 _triggerEnterTipPosition;
     private Vector3 _triggerEnterBasePosition;
     private Vector3 _triggerExitTipPosition; 
+
+    [SerializeField]
+    private AudioSource turnOnSound, turnOffSound, hummingSound, cuttingSound;
     
     // Start is called before the first frame update   
     void Start() 
@@ -60,29 +63,44 @@ Vector3 vector = new Vector3(-1.0f,0f);
         if (interactable == null){
             return;
         }
-         if (interactable.attachedToHand != null){
-             SteamVR_Input_Sources source = interactable.attachedToHand.handType;
-             FindObjectOfType<PlayerStats>().setLastLightsaber(transform.gameObject);
-             if (activateBlade[source].stateDown){
-                 weaponTurnedOff = !weaponTurnedOff;
-                 Debug.Log("Weapon state changed");
-             }
-         }
+        if (interactable.attachedToHand != null){
+            SteamVR_Input_Sources source = interactable.attachedToHand.handType;
+            FindObjectOfType<PlayerStats>().setLastLightsaber(transform.gameObject);
+            if (activateBlade[source].stateDown || Input.GetKeyDown("space")){
+                weaponTurnedOff = !weaponTurnedOff;
+                if(weaponTurnedOff){turnOffSound.Play();hummingSound.Stop();Debug.LogError("Turning Weapon off");}
+                if(!weaponTurnedOff){turnOnSound.Play();hummingSound.Play();hummingSound.loop = true;Debug.LogError("Turning Weapon on");}
+                Debug.Log("Weapon state changed");
+            }
+        }
         UpdateWeapon();
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider other)
     {
-        FindObjectOfType<AudioManager>().StopPlaying("saber_humming");
-        FindObjectOfType<AudioManager>().Play("saber_cut");
+        Debug.Log("Collidign with" + other.transform.name);
+        // FindObjectOfType<AudioManager>().StopPlaying("saber_humming");
+        // FindObjectOfType<AudioManager>().Play("saber_cut");
+        if (other.transform.root.GetComponent<WeaponManager>() == null && other.transform.root.GetComponent<Player>() == null && other.transform.root.GetComponent<Hand>() == null ){
+            hummingSound.Stop();
+            cuttingSound.Play();
+        }
+        
+        // cuttingSound.loop = true;
+
         Debug.Log("Enter Triggered");
         Debug.Log(other);
         _triggerEnterTipPosition = _tip.transform.position;
         _triggerEnterBasePosition = _base.transform.position;
     }
 
-    private void OnTriggerExit(Collider other)
+    public void OnTriggerExit(Collider other)
     {
+        if (cuttingSound.isPlaying)
+        {
+            cuttingSound.Stop();
+            hummingSound.Play();
+        }
         if (other.GetComponent<Sliceable>() == null){
             return;
         }
@@ -120,8 +138,11 @@ Vector3 vector = new Vector3(-1.0f,0f);
         GameObject[] slices = Slicer.Slice(plane, other.gameObject);
         Destroy(other.gameObject);
 
-        FindObjectOfType<AudioManager>().StopPlaying("saber_cut");
-        FindObjectOfType<AudioManager>().Play("saber_humming");
+        // FindObjectOfType<AudioManager>().StopPlaying("saber_cut");
+        // FindObjectOfType<AudioManager>().Play("saber_humming");
+        cuttingSound.Stop();
+        hummingSound.Play();
+        hummingSound.loop = true;
 
         Rigidbody rigidbody = slices[1].GetComponent<Rigidbody>();
         Vector3 newNormal = transformedNormal + Vector3.up * _forceAppliedToCut;
@@ -139,8 +160,10 @@ Vector3 vector = new Vector3(-1.0f,0f);
         
             if(_blade.transform.localScale.y <= 0.1)
             {
-                FindObjectOfType<AudioManager>().StopPlaying("saber_humming");
-                FindObjectOfType<AudioManager>().Play("saber_turn_off");
+                // FindObjectOfType<AudioManager>().StopPlaying("saber_humming");
+                // FindObjectOfType<AudioManager>().Play("saber_turn_off");
+                // hummingSound.Stop();
+                // turnOffSound.Play();
                 _blade.SetActive(false);
             }
             foreach (Transform eachChild in transform){
@@ -154,8 +177,11 @@ Vector3 vector = new Vector3(-1.0f,0f);
         {
             if(_blade.activeSelf==false)
             {
-                FindObjectOfType<AudioManager>().Play("saber_turn_on");
-                FindObjectOfType<AudioManager>().Play("saber_humming");
+                // FindObjectOfType<AudioManager>().Play("saber_turn_on");
+                // FindObjectOfType<AudioManager>().Play("saber_humming");
+                //turnOnSound.Play();
+                // hummingSound.Play();
+                // hummingSound.loop = true;
                 _blade.SetActive(true);
             }
             _blade.transform.localScale = new Vector3(_blade.transform.localScale.x, Mathf.Clamp(currentSize + (extendDelta * Time.deltaTime), minimumSwordSize, maximumSwordSize), _blade.transform.localScale.z);

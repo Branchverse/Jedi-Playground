@@ -222,9 +222,10 @@ GameObject:
   - component: {fileID: 447954}
   - component: {fileID: 11465950}
   - component: {fileID: 5004103365690547399}
-  - component: {fileID: 6673289487469889140}
   - component: {fileID: 7265208507108320156}
   - component: {fileID: 5962141157040231414}
+  - component: {fileID: -652320028654313343}
+  - component: {fileID: 1801933044723905045}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -298,27 +299,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &6673289487469889140
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 107946}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18c7674e7422b6d4290051194b6025bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RightHand: {fileID: 5841497859388345690}
-  LeftHand: {fileID: 2054816182988088260}
-  ToggleGripButton:
-    actionPath: /actions/default/in/GrabPinch
-    needsReinit: 0
-  position:
-    actionPath: 
-    needsReinit: 0
-  ClimberHandle: {fileID: 6693927878167917549}
 --- !u!114 &7265208507108320156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -354,6 +334,115 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.75, z: 0}
+--- !u!82 &-652320028654313343
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107946}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: f59348372d66c174595c9b5b34e87f77, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.66
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &1801933044723905045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9ad721e4dd16c24c914541b70a40b59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  background_drone: {fileID: -652320028654313343}
 --- !u!1 &109154
 GameObject:
   m_ObjectHideFlags: 0
@@ -1069,7 +1158,6 @@ GameObject:
   - component: {fileID: 11450312}
   - component: {fileID: 114000011273627542}
   - component: {fileID: 114000011734077242}
-  - component: {fileID: 2054816182988088260}
   - component: {fileID: 8324256933474412154}
   m_Layer: 26
   m_Name: LeftHand
@@ -1201,21 +1289,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967039
   hand: {fileID: 0}
---- !u!114 &2054816182988088260
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 144230}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87f5e6cf7c2a62b48ac4a45554ee384d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Hand: 1
-  TouchedCount: 0
-  grabbing: 0
 --- !u!135 &8324256933474412154
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1241,7 +1314,6 @@ GameObject:
   - component: {fileID: 11401046}
   - component: {fileID: 114000011957598740}
   - component: {fileID: 114000010591715100}
-  - component: {fileID: 5841497859388345690}
   - component: {fileID: 4605922064736558778}
   m_Layer: 26
   m_Name: RightHand
@@ -1373,21 +1445,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967039
   hand: {fileID: 0}
---- !u!114 &5841497859388345690
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 160596}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87f5e6cf7c2a62b48ac4a45554ee384d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Hand: 2
-  TouchedCount: 0
-  grabbing: 0
 --- !u!135 &4605922064736558778
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2883,10 +2940,10 @@ MonoBehaviour:
   rotateLeftFX: {fileID: 1000011982216214}
   snapLeftAction:
     actionPath: /actions/default/in/SnapTurnLeft
-    needsReinit: 0
+    needsReinit: 1
   snapRightAction:
     actionPath: /actions/default/in/SnapTurnRight
-    needsReinit: 0
+    needsReinit: 1
   fadeScreen: 1
   fadeTime: 0.1
   screenFadeColor: {r: 0, g: 0, b: 0, a: 1}
@@ -3083,6 +3140,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ForceTracker
+      objectReference: {fileID: 0}
+    - target: {fileID: 2152639547641849672, guid: 1cdc3a4be197c3e4d9e119ac2e08bdda,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 2152639547641849672, guid: 1cdc3a4be197c3e4d9e119ac2e08bdda,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.1001
+      objectReference: {fileID: 0}
+    - target: {fileID: 2152639547641849672, guid: 1cdc3a4be197c3e4d9e119ac2e08bdda,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.0931
       objectReference: {fileID: 0}
     - target: {fileID: 4368455351059304986, guid: 1cdc3a4be197c3e4d9e119ac2e08bdda,
         type: 3}

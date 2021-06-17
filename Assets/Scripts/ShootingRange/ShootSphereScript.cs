@@ -5,20 +5,24 @@ using UnityEngine.UIElements;
 
 public class ShootSphereScript : MonoBehaviour
 {
+    // public GameObject firstDouble;
+    // public GameObject secondDouble; 
     private bool active = false;
     private bool first = true;
+    private bool blasterMode = false;
+    private bool saberMode = false;
     private Animator animator;
     private Vector3 initialPosition = new Vector3(-7.268f,2.389f,-35.315f);
-    public float yMax;
-    public float yMin;
-    public float xMax;
-    public float xMin;
-    public float zMax;
-    public float zMin;
+    private float yMax = 6.146f;
+    private float yMin = 2.11f;
+    private float xMax = -3f;
+    private float xMin = -10f;
+    private float zMax = -36.358f;
+    private float zMin = -44.621f;
 
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         animator = gameObject.GetComponent<Animator>();
         gameObject.transform.position = initialPosition;
@@ -27,19 +31,38 @@ public class ShootSphereScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown("l")){activateSphereTraining();}
+        if(Input.GetKeyDown("l")){activateSphereTrainingBlaster();}
+        if(Input.GetKeyDown("2")){activateSphereTrainingSaber();}
     }
-    public void activateSphereTraining()
+    public void activateSphereTrainingBlaster()
     {
-        Debug.Log("SphereTraining has been activated");
+        Debug.Log("SphereTrainingBlaster has been activated");
         active = !active;
-        if(active){markSphereAsHit();}
+        blasterMode = !blasterMode;
+        if(active && saberMode){saberMode = false;}
+        if(active && blasterMode)
+        {
+            markSphereAsHit();
+        }
+        else{resetSphere();} 
+    }
+    public void activateSphereTrainingSaber()
+    {
+        Debug.Log("SphereTrainingSaber has been activated");
+        active = !active;
+        saberMode = !saberMode;
+        if(active && blasterMode){blasterMode = false;}
+        if(active)
+        {
+
+        }
         else{resetSphere();}
-        
     }
 
     public void repositionSphere()
     {
+        if(active)
+        {
         Debug.Log("Sphere-AnimationEvent has been triggered woop woop");
         Vector3 vector  = new Vector3();
         vector.x = Random.Range(xMin,xMax);
@@ -48,11 +71,13 @@ public class ShootSphereScript : MonoBehaviour
 
         gameObject.transform.position = vector;
         if(first){gameObject.transform.localScale = new Vector3(2,2,2);}
+        }
+        
     }
 
     public void markSphereAsHit()
     {
-        if(active)
+        if(active && blasterMode)
         {
             animator.SetTrigger("hitTrigger");
         }

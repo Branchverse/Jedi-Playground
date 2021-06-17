@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
+
 using UnityEngine;
 
 public class BulletHandler : MonoBehaviour
@@ -13,6 +13,9 @@ public class BulletHandler : MonoBehaviour
     private Vector3 StartPosition;
     private Vector3 bulletSpawnerTransformForward;
     private bool alreadyReflected = false;
+
+    [SerializeField]
+    private AudioSource shootSound;
 
     // void BulletHandler()
     // {
@@ -27,11 +30,14 @@ public class BulletHandler : MonoBehaviour
         // Prevent Bullet from colliding with Colliders in the Array
         reactivatePlayerCollisions(true);
     }
+
     // Start is called before the first frame update
     void Start()
     {
         StartPosition = transform.position;
         //BulletUpdate();
+
+        shootSound.Play();
     }
 
     // Update is called once per frame

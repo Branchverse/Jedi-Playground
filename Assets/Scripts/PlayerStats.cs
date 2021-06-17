@@ -12,6 +12,8 @@ public class PlayerStats : MonoBehaviour
 
     private SteamVR_Action_Boolean isUsingSecondary; 
 
+    private SteamVR_Action_Boolean SwapHandMode; 
+
     public SteamVR_Input_Sources leftHand;
 
     public SteamVR_Input_Sources rightHand;
@@ -32,6 +34,8 @@ public class PlayerStats : MonoBehaviour
 
     private float SecondaryGameObjectDistance;
 
+    private LineRenderer targetIndicator;
+
 
 
     private void Awake() {
@@ -39,15 +43,24 @@ public class PlayerStats : MonoBehaviour
 
             isUsingSecondary = SteamVR_Actions._default.GrabGrip;
 
+            SwapHandMode = SteamVR_Actions._default.ActivateMenu;
+
             //Primary Action
             isPulling[SteamVR_Input_Sources.LeftHand].onStateDown += useForce;
             isPulling[SteamVR_Input_Sources.RightHand].onStateDown += useForce;
             isPulling[SteamVR_Input_Sources.Any].onStateUp += stopLightsaberPull;
 
             //Secondary Action
-            isUsingSecondary[SteamVR_Input_Sources.LeftHand].onStateDown += useSecondary;
+            isUsingSecondary[SteamVR_Input_Sources.LeftHand].onStateDown += useSecondary; 
             isUsingSecondary[SteamVR_Input_Sources.RightHand].onStateDown += useSecondary;
             isUsingSecondary[SteamVR_Input_Sources.RightHand].onStateUp += stopSecondary;
+            isUsingSecondary[SteamVR_Input_Sources.LeftHand].onStateUp += stopSecondary;
+
+
+           SwapHandMode[SteamVR_Input_Sources.Any].onStateDown += changeForce;
+
+           targetIndicator = GetComponent<LineRenderer>();
+           targetIndicator.positionCount = 0; 
 
     }
 
@@ -56,16 +69,6 @@ public class PlayerStats : MonoBehaviour
     }
 
     void FixedUpdate() {
-        if (Input.GetKeyDown(KeyCode.P)){
-            if (HandMode == 1){
-                Debug.Log("Changed Hand mode to 0");
-                HandMode = 0;
-                
-            } else {
-                Debug.Log("Changed Hand mode to 1");
-                HandMode = 1;
-            }
-        }
 
         //Check if Primary is active
         if (isPullingSaber && !targetHandPrimary.GetComponent<Hand>().ObjectIsAttached(LastUsedLightSaber)){
@@ -104,9 +107,11 @@ public class PlayerStats : MonoBehaviour
         if (source == SteamVR_Input_Sources.LeftHand){
             targetHandPrimary =  GameObject.Find("/Player/SteamVRObjects/LeftHand");
         }  
+        /*
         if (targetHandPrimary.GetComponent<ClimberHand>().TouchedCount > 0) {
             return;
         }
+        */
         if (HandMode == 0){
             moveLightsaber(action_Boolean, source);
         } else if (HandMode == 1){
@@ -114,11 +119,20 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
+    private void changeForce(SteamVR_Action_Boolean action_Boolean, SteamVR_Input_Sources source){
+        if (HandMode == 0){
+            HandMode = 1;
+            return;
+        }
+        HandMode = 0;
+    }
+
     private void useSecondary(SteamVR_Action_Boolean action_Boolean, SteamVR_Input_Sources source){
         targetHandSecondary = GameObject.Find("/Player/SteamVRObjects/RightHand");
         if (source == SteamVR_Input_Sources.LeftHand){
              targetHandSecondary =  GameObject.Find("/Player/SteamVRObjects/LeftHand");
         }  
+        Debug.Log("Now secondary with"+targetHandSecondary.transform.name);
         if (targetHandSecondary.GetComponent<Hand>().currentAttachedObjectInfo != null){
             Debug.Log("is holding Object");
             return;
@@ -127,16 +141,25 @@ public class PlayerStats : MonoBehaviour
         Debug.Log("Looking for secondary target");
         //Debug.DrawRay(targetHandSecondary.transform.position, targetHandSecondary.GetComponentInChildren<ForceDirection>().getDirection(), Color.green);
         if(Physics.Raycast( targetHandSecondary.transform.position, targetHandSecondary.GetComponentInChildren<ForceDirection>().getDirection(), out hit)){
+
+
+            Debug.Log("hit: "+hit.transform.gameObject.name);
+
+            targetIndicator.positionCount = 2;
+            targetIndicator.SetPosition(0,targetHandSecondary.gameObject.transform.position);
+            targetIndicator.SetPosition(1,hit.point);
+
             //cannot move non rigidbody Object 
-            Debug.Log("Found secondary target");
+            
             if (hit.transform.gameObject.GetComponent<Rigidbody>() == null){
                 Debug.Log("Non Rigidbody: "+hit.transform.gameObject.name);
                 return;
             }
+
+
             ObjectForSecondary = hit.transform.gameObject;
             secondaryIsActive = true;
             SecondaryGameObjectDistance = (ObjectForSecondary.transform.position - targetHandSecondary.transform.position).magnitude;           
-            ObjectForSecondary.GetComponent<Material>().SetColor("test",Color.green);
             Debug.Log("set secondary target");
             return;
         }
@@ -189,5 +212,6 @@ public class PlayerStats : MonoBehaviour
 
     private void stopSecondary(SteamVR_Action_Boolean action_Boolean, SteamVR_Input_Sources source){
         secondaryIsActive = false;
+        targetIndicator.positionCount = 0;
     }
 }
