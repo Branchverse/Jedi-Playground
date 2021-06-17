@@ -286,6 +286,7 @@ MonoBehaviour:
   highlightOnHover: 1
   hideHighlight: []
   hoverPriority: 0
+  pickUpSound: {fileID: 0}
 --- !u!114 &3516538369277724236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,13 +303,13 @@ MonoBehaviour:
   childCollider: {fileID: 0}
   linearMapping: {fileID: 0}
   hoverLock: 0
-  limited: 1
+  limited: 0
   frozenDistanceMinMaxThreshold: {x: 0.1, y: 0.2}
   onFrozenDistanceThreshold:
     m_PersistentCalls:
       m_Calls: []
   minAngle: 0
-  freezeOnMin: 0
+  freezeOnMin: 1
   onMinAngle:
     m_PersistentCalls:
       m_Calls: []

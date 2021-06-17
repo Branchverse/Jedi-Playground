@@ -19,8 +19,6 @@ namespace Valve.VR
         
         private static SteamVR_Input_ActionSet_default p__default;
         
-        private static SteamVR_Input_ActionSet_RadialMenu p_RadialMenu;
-        
         public static SteamVR_Input_ActionSet_default _default
         {
             get
@@ -29,21 +27,11 @@ namespace Valve.VR
             }
         }
         
-        public static SteamVR_Input_ActionSet_RadialMenu RadialMenu
-        {
-            get
-            {
-                return SteamVR_Actions.p_RadialMenu.GetCopy<SteamVR_Input_ActionSet_RadialMenu>();
-            }
-        }
-        
         private static void StartPreInitActionSets()
         {
             SteamVR_Actions.p__default = ((SteamVR_Input_ActionSet_default)(SteamVR_ActionSet.Create<SteamVR_Input_ActionSet_default>("/actions/default")));
-            SteamVR_Actions.p_RadialMenu = ((SteamVR_Input_ActionSet_RadialMenu)(SteamVR_ActionSet.Create<SteamVR_Input_ActionSet_RadialMenu>("/actions/RadialMenu")));
             Valve.VR.SteamVR_Input.actionSets = new Valve.VR.SteamVR_ActionSet[] {
-                    SteamVR_Actions._default,
-                    SteamVR_Actions.RadialMenu};
+                    SteamVR_Actions._default};
         }
     }
 }

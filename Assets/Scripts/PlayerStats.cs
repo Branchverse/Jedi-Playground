@@ -107,9 +107,11 @@ public class PlayerStats : MonoBehaviour
         if (source == SteamVR_Input_Sources.LeftHand){
             targetHandPrimary =  GameObject.Find("/Player/SteamVRObjects/LeftHand");
         }  
+        /*
         if (targetHandPrimary.GetComponent<ClimberHand>().TouchedCount > 0) {
             return;
         }
+        */
         if (HandMode == 0){
             moveLightsaber(action_Boolean, source);
         } else if (HandMode == 1){
