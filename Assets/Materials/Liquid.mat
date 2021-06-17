@@ -254,9 +254,8 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 1
     m_Colors:
-    - Color_1e8f8433be814ccaaf40e054928c7e81: {r: 0.4339623, g: 0.026610907, b: 0.026610907,
-        a: 0}
-    - Color_4b6c4bac538044c5b56836a0ed20b851: {r: 0.18867922, g: 0, b: 0, a: 0}
+    - Color_1e8f8433be814ccaaf40e054928c7e81: {r: 0.4245283, g: 0, b: 0, a: 0}
+    - Color_4b6c4bac538044c5b56836a0ed20b851: {r: 0.11320752, g: 0, b: 0, a: 0}
     - Color_806bd4a2837c4ad2ab48e2bd670d164d: {r: 0.10849059, g: 0.6033398, b: 1,
         a: 0}
     - Color_c43493aea85a4fefbf676c4f780a5b5b: {r: 0.6084906, g: 0.91338974, b: 1,
