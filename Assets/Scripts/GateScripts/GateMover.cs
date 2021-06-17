@@ -11,7 +11,7 @@ public class GateMover : MonoBehaviour
     private bool closeTheGate = false;
     private bool isSoundPlaying = false;
 
-    private float lowestPosition = -3.740645f;
+    private float lowestPosition = -3.800645f;
     private float highestPosition = 1.169354f;
 
     private float openSpeed = 1.3f;
@@ -79,11 +79,13 @@ public class GateMover : MonoBehaviour
 
     public void activateOpening()
     {
+        closeTheGate = false;
         openTheGate = true;
     }
 
     public void activateClosing()
     {
+        openTheGate = false;
         closeTheGate = true;
     }
 }
