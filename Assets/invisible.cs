@@ -9,12 +9,12 @@ public class invisible : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameObject.tag = "box";
     }
 
     // Update is called once per frame
     void Update()
     {
-        gameObject.tag = "box";
+        
     }
 }
