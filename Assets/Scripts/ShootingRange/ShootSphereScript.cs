@@ -20,6 +20,8 @@ public class ShootSphereScript : MonoBehaviour
     private float zMax = -36.358f;
     private float zMin = -44.621f;
 
+    [SerializeField]
+    private AudioSource hoverSound, crashSound;
 
     // Start is called before the first frame update
     void Awake()
@@ -33,6 +35,14 @@ public class ShootSphereScript : MonoBehaviour
     {
         if(Input.GetKeyDown("l")){activateSphereTrainingBlaster();}
         if(Input.GetKeyDown("2")){activateSphereTrainingSaber();}
+
+        if (active && !hoverSound.isPlaying)
+        {
+            hoverSound.Play();
+        } else if (!active)
+        {
+            hoverSound.Stop();
+        } 
     }
     public void activateSphereTrainingBlaster()
     {
@@ -42,7 +52,7 @@ public class ShootSphereScript : MonoBehaviour
         if(active && saberMode){saberMode = false;}
         if(active && blasterMode)
         {
-            markSphereAsHit();
+            setInitialPosition();
         }
         else{resetSphere();} 
     }
@@ -74,15 +84,29 @@ public class ShootSphereScript : MonoBehaviour
         }
         
     }
-
+    
     public void markSphereAsHit()
     {
         if(active && blasterMode)
         {
             animator.SetTrigger("hitTrigger");
-        }
-        
+
+            if (!crashSound.isPlaying)
+            {
+                crashSound.Play();
+            }
+        }     
     }
+
+    // call this when activating blaster or saber mode
+    private void setInitialPosition()
+    {
+        if(active && (blasterMode || saberMode))
+        {
+            animator.SetTrigger("hitTrigger");
+        }   
+    }
+
     private void resetSphere()
     {
         gameObject.transform.position = initialPosition;
