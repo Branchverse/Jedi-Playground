@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Floor4
-  m_Shader: {fileID: -6465566751694194690, guid: e48f3d547e5d6ec4c9ce64fd0f338778,
+  m_Shader: {fileID: -6465566751694194690, guid: bace70fad9d60ca48a14934f6d43f997,
     type: 3}
   m_ShaderKeywords: _DISABLE_SSR_TRANSPARENT
   m_LightmapFlags: 4
@@ -96,19 +96,35 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_17016e0e31ac4fd1ad0a113781d74835_Texture_1:
-        m_Texture: {fileID: 2800000, guid: c9a093b117531cc4fb8014ed5cdd83e5, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_19ecadcc7ff94ffeb4ef9524d3d5c4f7_Texture_1:
-        m_Texture: {fileID: 2800000, guid: 7217023f4427b204c9c1e2c62381e1af, type: 3}
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_31c1769154c441609ceb051c783a3889_Texture_1:
+        m_Texture: {fileID: 2800000, guid: b07cc03e115e21347b00d0dda9a115ca, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_3d9752c0424c4de987eba320c5ca0f4d_Texture_1:
-        m_Texture: {fileID: 2800000, guid: b33ff6cca31c2e5488e6582cc55bfbec, type: 3}
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_aa462e6cd95d48f8bee189075eecaeae_Texture_1:
+        m_Texture: {fileID: 2800000, guid: f18a85a1fa9e8f048a7360c6e76799b8, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_b1f1d588e3ed40788a5c067ac9586c5d_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 730c9c37f943cd0429144f27a2cd01e9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_b564450215064a5abab5e4d45406afda_Texture_1:
+        m_Texture: {fileID: 2800000, guid: e6a727a00499a4b41bd5438832be5b90, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_db8fc61bc9bc4171a279326d42da49a8_Texture_1:
-        m_Texture: {fileID: 2800000, guid: 141274427e59b2b4cb0f2e5fc9be12da, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecularColorMap:
