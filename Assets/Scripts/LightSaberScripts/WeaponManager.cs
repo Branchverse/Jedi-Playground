@@ -68,8 +68,8 @@ Vector3 vector = new Vector3(-1.0f,0f);
             FindObjectOfType<PlayerStats>().setLastLightsaber(transform.gameObject);
             if (activateBlade[source].stateDown || Input.GetKeyDown("space")){
                 weaponTurnedOff = !weaponTurnedOff;
-                if(weaponTurnedOff){turnOffSound.Play();hummingSound.Stop();Debug.LogError("Turning Weapon off");}
-                if(!weaponTurnedOff){turnOnSound.Play();hummingSound.Play();hummingSound.loop = true;Debug.LogError("Turning Weapon on");}
+                if(weaponTurnedOff){turnOffSound.Play();hummingSound.Stop();Debug.Log("Turning Weapon off");}
+                if(!weaponTurnedOff){turnOnSound.Play();hummingSound.Play();hummingSound.loop = true;Debug.Log("Turning Weapon on");}
                 Debug.Log("Weapon state changed");
             }
         }
