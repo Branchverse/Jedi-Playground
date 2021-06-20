@@ -62,9 +62,14 @@ public class ShootSphereScript : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(saberMode && counter>=150){counter=0;choiceMaker();}
+        // Checking if the sphere should levitate, shoot, or do nothing at all.
+        if(saberMode && counter>=100){counter=0;levitateToNewPosition();}
         else if(saberMode){counter++;}
-        if(moving){transform.position += deltaPosition; movingCounter++;if(movingCounter == 51){moving = false;movingCounter = 0;}}
+        if(moving)
+        {
+            transform.position += deltaPosition; movingCounter++;
+            if(movingCounter == 51){moving = false;movingCounter = 0;shootAtPlayer();}
+        }
     }
 
     public void activateSphereTrainingBlaster()
@@ -128,24 +133,30 @@ public class ShootSphereScript : MonoBehaviour
         }     
     }
 
-    public void choiceMaker()
-    {
-        Debug.Log("SaberTrainer is making a choice!");
-        if(Random.value >=0.3f){shootAtPlayer();}
-        else{levitateToNewPosition();}
-    }
+    // There used to be a choice to make it random, this doesn't look clean at all though.
+    // public void choiceMaker()
+    // {
+    //     Debug.Log("SaberTrainer is making a choice!");
+    //     if(Random.value >=0.5f){shootAtPlayer();}
+    //     else{levitateToNewPosition();}
+    // }
 
     private void shootAtPlayer()
     {
         Debug.Log("Sphere is shooting");
-        counter=80;
+        counter=40;
+        // Find target inside Player
         Vector3 target = RandomPointInBounds(playerHitBox.bounds);
         Debug.Log(target + "is the target for the sphere");
+
+        //turn towards player
+        gameObject.transform.LookAt(target);
+
         Vector3 direction = (target - bulletSpawner.transform.position).normalized;
-        Debug.DrawLine(bulletSpawner.transform.position,bulletSpawner.transform.position + direction * 30,Color.red,Mathf.Infinity);
+        Debug.DrawLine(bulletSpawner.transform.position,bulletSpawner.transform.position + direction * 40,Color.red,Mathf.Infinity);
 
         // Shoot
-        GameObject bulletPrefabClone = Instantiate(bulletPrefab, bulletSpawner.transform.position, Quaternion.Euler(direction.x-90f,direction.y,direction.z));
+        GameObject bulletPrefabClone = Instantiate(bulletPrefab, bulletSpawner.transform.position, bulletSpawner.transform.rotation);
         bulletPrefabClone.GetComponent<Rigidbody>().AddForce(direction * 30f, ForceMode.Impulse);
         Destroy(bulletPrefabClone, 3f);
     }
