@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1129854821396833880
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 370398771503520485}
+  m_Layer: 0
+  m_Name: BulletSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &370398771503520485
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1129854821396833880}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.15}
+  m_LocalScale: {x: 12.248488, y: 12.248488, z: 12.261923}
+  m_Children: []
+  m_Father: {fileID: 5309522591415246825}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &2129959330
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -44,6 +74,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1369180661179682940}
+  - {fileID: 370398771503520485}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -78,12 +109,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f505defdb3f36e24c88291f9a6082453, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  yMax: 6.146
-  yMin: 1.01
-  xMax: 3.24
-  xMin: -18.06
-  zMax: -36.358
-  zMin: -44.621
+  playerHitBox: {fileID: 0}
+  bulletSpawner: {fileID: 0}
 --- !u!1001 &1480268054356981655
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -8,7 +8,8 @@ public class ShootingRangeHandler : MonoBehaviour
     public GameObject sphere2;
     public GameObject sphere3;
 
-    private bool active = false;
+    private bool blasterActive = false;
+    private bool saberActive = false;
 
     // Start is called before the first frame update
     void Start()
@@ -25,10 +26,11 @@ public class ShootingRangeHandler : MonoBehaviour
 
     public void activateSphereTrainingBlaster()
     {
-        active = !active;
-        if(active)
+        blasterActive = !blasterActive;
+        if(blasterActive)
         {
             Debug.Log("Handler activates BlasterTraining");
+            if(saberActive){activateSphereTrainingSaber();}
             sphere2.SetActive(true);
             sphere3.SetActive(true);
             sphere1.GetComponent<ShootSphereScript>().activateSphereTrainingBlaster();
@@ -37,6 +39,7 @@ public class ShootingRangeHandler : MonoBehaviour
         }
         else
         {
+            Debug.Log("Handler deactivates SaberTraining");
             sphere1.GetComponent<ShootSphereScript>().activateSphereTrainingBlaster();
             sphere2.GetComponent<ShootSphereScript>().activateSphereTrainingBlaster();
             sphere3.GetComponent<ShootSphereScript>().activateSphereTrainingBlaster();
@@ -47,6 +50,18 @@ public class ShootingRangeHandler : MonoBehaviour
     }
     public void activateSphereTrainingSaber()
     {
-
+        saberActive = !saberActive;
+        
+        if(saberActive)
+        {
+            Debug.Log("Handler activates SaberTraining");
+            if(blasterActive){activateSphereTrainingBlaster();}
+            sphere1.GetComponent<ShootSphereScript>().activateSphereTrainingSaber();
+        }
+        else
+        {
+            Debug.Log("Handler deactivates SaberTraining");
+            sphere1.GetComponent<ShootSphereScript>().activateSphereTrainingSaber();
+        }
     }
 }
