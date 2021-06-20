@@ -75,7 +75,7 @@ public class ShootSphereScript : MonoBehaviour
         if(active && saberMode){saberMode = false;}
         if(active && blasterMode)
         {
-            setInitialPosition();
+            markSphereAsHit();
         }
         else{resetSphere();} 
     }
@@ -129,21 +129,12 @@ public class ShootSphereScript : MonoBehaviour
     }
 
     public void choiceMaker()
-    // // call this when activating blaster or saber mode
-    // private void setInitialPosition()
-    // {
-    //     if(active && (blasterMode || saberMode))
-    //     {
-    //         animator.SetTrigger("hitTrigger");
-    //     }   
-    // }
-
-    private void resetSphere()
     {
         Debug.Log("SaberTrainer is making a choice!");
         if(Random.value >=0.3f){shootAtPlayer();}
         else{levitateToNewPosition();}
     }
+
     private void shootAtPlayer()
     {
         Debug.Log("Sphere is shooting");
