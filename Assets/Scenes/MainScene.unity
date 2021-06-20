@@ -3420,6 +3420,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5962141157040231414, guid: dc06161b6d97feb419f45f03b62e14b9,
         type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5962141157040231414, guid: dc06161b6d97feb419f45f03b62e14b9,
+        type: 3}
       propertyPath: m_SlopeLimit
       value: 70
       objectReference: {fileID: 0}
@@ -3463,6 +3468,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b700f903bc168141b28577849589e2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!143 &282992348 stripped
+CharacterController:
+  m_CorrespondingSourceObject: {fileID: 5962141157040231414, guid: dc06161b6d97feb419f45f03b62e14b9,
+    type: 3}
+  m_PrefabInstance: {fileID: 282992343}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &308581538 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 029feb27265da7849b7078bd795f361a,
@@ -3543,6 +3554,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4519548827744782, guid: 8c39b59b8609eeb41846d53ddd3ce2a8,
     type: 3}
   m_PrefabInstance: {fileID: 2050409971}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &319984298 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1750666749101165254, guid: 256023f84875b114aa431dfdb627f0b5,
+    type: 3}
+  m_PrefabInstance: {fileID: 832219159}
   m_PrefabAsset: {fileID: 0}
 --- !u!43 &320023113
 Mesh:
@@ -13312,16 +13329,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7751743856812113944, guid: 256023f84875b114aa431dfdb627f0b5,
         type: 3}
-      propertyPath: xMax
-      value: -3
-      objectReference: {fileID: 0}
+      propertyPath: playerHitBox
+      value: 
+      objectReference: {fileID: 282992348}
     - target: {fileID: 7751743856812113944, guid: 256023f84875b114aa431dfdb627f0b5,
         type: 3}
-      propertyPath: xMin
-      value: -10
-      objectReference: {fileID: 0}
+      propertyPath: bulletSpawner
+      value: 
+      objectReference: {fileID: 832219160}
+    - target: {fileID: 7751743856812113944, guid: 256023f84875b114aa431dfdb627f0b5,
+        type: 3}
+      propertyPath: childWithCollider
+      value: 
+      objectReference: {fileID: 319984298}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 256023f84875b114aa431dfdb627f0b5, type: 3}
+--- !u!1 &832219160 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1129854821396833880, guid: 256023f84875b114aa431dfdb627f0b5,
+    type: 3}
+  m_PrefabInstance: {fileID: 832219159}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &833786366
 GameObject:
   m_ObjectHideFlags: 0
