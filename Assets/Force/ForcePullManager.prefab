@@ -48,6 +48,8 @@ MonoBehaviour:
     actionSetPath: /actions/default
   leftHand: 1
   rightHand: 2
+  targetHandPrimary: {fileID: 0}
+  targetHandSecondary: {fileID: 0}
   HandMode: 0
   ForcePushObject: {fileID: 1967563177001887611, guid: a1eb8d11fd35a5e4e8d3d3804879b1a1,
     type: 3}
@@ -101,8 +103,8 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
-        value: 1
+        time: 0.03604889
+        value: 0.056856155
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -114,8 +116,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 0.35893556, g: 0.4147848, b: 0.6981132, a: 1}
+      key1: {r: 0.35893556, g: 0.4147848, b: 0.6981132, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
