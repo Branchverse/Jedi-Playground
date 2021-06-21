@@ -149,6 +149,8 @@ class SlicesMetadata
     /// <param name="shareVertices"></param>
     private void AddTrianglesNormalsAndUvs(ref List<Vector3> vertices, ref List<int> triangles, ref List<Vector3> normals, ref List<Vector2> uvs, Vector3 vertex1, Vector3? normal1, Vector2 uv1, Vector3 vertex2, Vector3? normal2, Vector2 uv2, Vector3 vertex3, Vector3? normal3, Vector2 uv3, bool shareVertices, bool addFirst)
     {
+        addFirst = true;
+        shareVertices = false;
         int tri1Index = vertices.IndexOf(vertex1);
 
         if (addFirst)
