@@ -159,6 +159,7 @@ public class PlayerStats : MonoBehaviour
 
             ObjectForSecondary = hit.transform.gameObject;
             secondaryIsActive = true;
+             targetIndicator.positionCount = 0;
             SecondaryGameObjectDistance = (ObjectForSecondary.transform.position - targetHandSecondary.transform.position).magnitude;           
             Debug.Log("set secondary target");
             return;
