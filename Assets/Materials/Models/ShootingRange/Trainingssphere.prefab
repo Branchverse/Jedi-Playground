@@ -111,10 +111,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f505defdb3f36e24c88291f9a6082453, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerHitBox: {fileID: 0}
+  bulletSpawner: {fileID: 1129854821396833880}
+  childWithCollider: {fileID: 1750666749101165254}
+  bulletPrefab: {fileID: 9210101143899765707, guid: aa61cc6fef2a7854cbc15b0e3dafc07f,
+    type: 3}
   hoverSound: {fileID: -4163182378539493881}
   crashSound: {fileID: 1548080140941115432}
-  playerHitBox: {fileID: 0}
-  bulletSpawner: {fileID: 0}
 --- !u!82 &-4163182378539493881
 AudioSource:
   m_ObjectHideFlags: 0
