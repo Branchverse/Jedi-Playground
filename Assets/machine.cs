@@ -6,7 +6,7 @@ using Valve.VR.InteractionSystem;
 public class machine : MonoBehaviour
 {
     //[SerializeField] private Vector3 boxV;
-    //private GameObject blade;
+    private GameObject blade;
     private GameObject box;
     private float speed;
     private float speedEx;
@@ -21,7 +21,7 @@ public class machine : MonoBehaviour
         //boxV = new Vector3(-18.4f, 2.65f, -27.465f);
         speed = 0.1f;
         speedEx = 0.5f;
-        //blade = GameObject.Find("blade");
+        blade = GameObject.Find("blade");
         box = GameObject.Find("box");
         //color = blade.GetComponent<Renderer>().Material.Color;
     }
