@@ -11,8 +11,8 @@ public class GateMover : MonoBehaviour
     private bool closeTheGate = false;
     private bool isSoundPlaying = false;
 
-    private float lowestPosition = -3.800645f;
-    private float highestPosition = 1.169354f;
+    private float lowestPosition = 4.46f;
+    private float highestPosition = 9.23f;
 
     private float openSpeed = 1.3f;
     // Start is called before the first frame update
