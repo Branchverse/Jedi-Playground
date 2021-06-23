@@ -5026,6 +5026,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 398645049}
+  - component: {fileID: 398645050}
   m_Layer: 0
   m_Name: LichtschwertStation (1)
   m_TagString: Untagged
@@ -5066,6 +5067,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 90.066}
+--- !u!114 &398645050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398645048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f527c37f89c184fbbb071735002e4cef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &400311175
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10344,6 +10357,7 @@ GameObject:
   - component: {fileID: 728035317}
   - component: {fileID: 728035316}
   - component: {fileID: 728035315}
+  - component: {fileID: 728035320}
   m_Layer: 0
   m_Name: Cylinder.003
   m_TagString: Untagged
@@ -10482,6 +10496,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 728035313}
   m_Mesh: {fileID: 6239881831769578202, guid: 5729514a230dbd448aab874e6a96e4fb, type: 3}
+--- !u!114 &728035320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 728035313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3efed951c1dd94c469a55b4932199861, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &728201992
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15040,9 +15066,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 960404980}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf983287bc6104b3f970617d04f817fb, type: 3}
+  m_Script: {fileID: 11500000, guid: bc7fb1ff4831542f9a261d5f36eb1bb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  box: {fileID: 0}
+  speed: 0
+  isInBox: 0
 --- !u!23 &960404982
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -18758,7 +18787,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1279230740}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b4199fe740a542d8805086a8e90bfdf, type: 3}
+  m_Script: {fileID: 11500000, guid: 46bd6ff4d4a4e4d9bac8baa1b4ed389a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!65 &1279230743
@@ -28119,9 +28148,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1850817865}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3efed951c1dd94c469a55b4932199861, type: 3}
+  m_Script: {fileID: 11500000, guid: 385fa18d2c40e47a9b0956fa0ee86de7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isInBox: 0
 --- !u!65 &1850817868
 BoxCollider:
   m_ObjectHideFlags: 0
