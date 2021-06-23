@@ -314,7 +314,10 @@ namespace Valve.VR.InteractionSystem
 
             attachedToHand = hand;
 
-            pickUpSound.Play();
+            if (pickUpSound)
+            {
+                pickUpSound.Play();
+            }
         }
 
         protected virtual void OnDetachedFromHand(Hand hand)

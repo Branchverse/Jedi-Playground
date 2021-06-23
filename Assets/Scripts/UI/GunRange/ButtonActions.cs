@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ButtonActions : MonoBehaviour
 {
+    [SerializeField]
+    private AudioSource press_sound;
 
     public enum Usage
     {
@@ -27,6 +29,11 @@ public class ButtonActions : MonoBehaviour
 
     public virtual void OnTrigger()
     {
+        if (press_sound)
+        {
+            press_sound.Play();
+        }
+        
         switch(UseAs)
         {
             case Usage.ElevatorToggle:
