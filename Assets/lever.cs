@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class lever : MonoBehaviour
+public class hebel : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()

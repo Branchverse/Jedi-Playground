@@ -5,44 +5,38 @@ using Valve.VR.InteractionSystem;
 
 public class machine : MonoBehaviour
 {
-    //[SerializeField] private Vector3 boxV;
-    private GameObject blade;
     private GameObject box;
     private float speed;
-    private float speedEx;
-
-    private Color color;
-    //private Interactable interactable;
+    public bool isInBox;
+    //private float speedEx;
 
     // Start is called before the first frame update
     void Start()
     {
-        //interactable = GetComponent<Interactable>();
-        //boxV = new Vector3(-18.4f, 2.65f, -27.465f);
+        isInBox = false;
         speed = 0.1f;
-        speedEx = 0.5f;
-        blade = GameObject.Find("blade");
+        //speedEx = 0.5f;
         box = GameObject.Find("box");
-        //color = blade.GetComponent<Renderer>().Material.Color;
+        gameObject.name = "saber";
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log("boooox   " + box.transform.position);
-        transform.position = Vector3.MoveTowards(transform.position, box.transform.position, Time.deltaTime * speedEx);
+        //transform.position = Vector3.MoveTowards(transform.position, box.transform.position, Time.deltaTime * speedEx);
     }
     private void OnTriggerEnter (Collider target){
-            if(target.tag == "box" ){ //&& target.Collider.bounds.Contains(transform.position) oder interactable.attachedToHand == null ?! pls send help
-                //Debug.Log();
+            if(target.tag == "box" ){ 
                 transform.position = Vector3.MoveTowards(transform.position, box.transform.position, Time.deltaTime * speed);
                 transform.Rotate(90, 0, 0);
+                isInBox = true;
             }
     } 
 
     private void OnTriggerExit (Collider target){
         if(target.tag == "box"){
             transform.Rotate(-90, 0, 0);
+            isInBox = false;
         }
     }
 }
