@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 445544118213128663}
   - component: {fileID: -605885171278342254}
   - component: {fileID: 1066831918856615322}
+  - component: {fileID: 7361983291826031585}
   m_Layer: 0
   m_Name: Crate_02_snaps002
   m_TagString: Untagged
@@ -322,3 +323,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collision_sound_crate1: {fileID: 445544118213128663}
   collision_sound_crate2: {fileID: -605885171278342254}
+--- !u!114 &7361983291826031585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1751948307316588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7df4eb6bebdaf4548b4746999af2a2ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isSolid: 1
+  _reverseWindTriangles: 0
+  _useGravity: 1
+  _shareVertices: 0
+  _smoothVertices: 0
