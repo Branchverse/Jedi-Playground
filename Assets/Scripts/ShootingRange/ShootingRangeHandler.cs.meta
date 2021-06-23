@@ -3,7 +3,11 @@ guid: db4243fbbbdee2446aaead9a15b5606a
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - sphere1: {fileID: 5084139261177041435, guid: 256023f84875b114aa431dfdb627f0b5,
+      type: 3}
+  - sphere2: {instanceID: 0}
+  - sphere3: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

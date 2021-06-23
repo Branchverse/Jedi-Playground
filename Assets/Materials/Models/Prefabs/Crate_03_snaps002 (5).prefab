@@ -131,7 +131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isSolid: 1
   _reverseWindTriangles: 0
-  _useGravity: 0
+  _useGravity: 1
   _shareVertices: 0
   _smoothVertices: 0
 --- !u!114 &1618829606010384621
