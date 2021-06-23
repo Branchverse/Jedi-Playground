@@ -43,6 +43,7 @@ public class WeaponManager : MonoBehaviour
     void Start() 
     {
         interactable = GetComponent<Interactable>();
+        _blade.name = "blade";
     }
 
     void Awake()

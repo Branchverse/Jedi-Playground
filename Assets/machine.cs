@@ -6,9 +6,7 @@ using Valve.VR.InteractionSystem;
 public class machine : MonoBehaviour
 {
     [SerializeField] private Vector3 box;
-
-    [SerializeField]
-    private GameObject _blade;
+    private GameObject blade;
     private float speed;
     private float speedEx;
 
@@ -22,13 +20,14 @@ public class machine : MonoBehaviour
         box = new Vector3(-18.4f, 2.65f, -27.465f);
         speed = 0.1f;
         speedEx = 0.5f;
-        color = _blade.GetComponent<Renderer>().Material.Color;
+        blade = GameObject.Find("blade");
+        //color = blade.GetComponent<Renderer>().Material.Color;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(color);
+        //Debug.Log("blaaade   " + color);
         transform.position = Vector3.MoveTowards(transform.position, box, Time.deltaTime * speedEx);
     }
     private void OnTriggerEnter (Collider target){
