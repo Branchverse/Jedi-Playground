@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 6387942884875919632}
   - component: {fileID: 6387942884875919633}
   - component: {fileID: 6387942884875919634}
-  - component: {fileID: 6387942884875919635}
   - component: {fileID: 6387942884875919628}
   - component: {fileID: 613683429645172348}
   - component: {fileID: 7525259395140107972}
   - component: {fileID: 3396470201780556128}
+  - component: {fileID: 3295452959394105025}
   m_Layer: 0
   m_Name: Shed_Floor
   m_TagString: Untagged
@@ -14822,14 +14822,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &6387942884875919635
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6387942884875919629}
-  m_Mesh: {fileID: 0}
 --- !u!64 &6387942884875919628
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -14855,8 +14847,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 26.000002, y: 1.033, z: 47.000004}
-  m_Center: {x: 12.999999, y: 0.48370847, z: -23.500002}
+  m_Size: {x: 26.000002, y: 1.033, z: 36.99206}
+  m_Center: {x: 12.999999, y: 0.4837085, z: -18.49603}
 --- !u!65 &7525259395140107972
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14883,3 +14875,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.005, y: 5.000003, z: 47.000004}
   m_Center: {x: 0.99810123, y: 2.5, z: -23.500002}
+--- !u!65 &3295452959394105025
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6387942884875919629}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 26.000002, y: 0.4506373, z: 10.0204315}
+  m_Center: {x: 12.999999, y: 0.2528172, z: -41.98979}
