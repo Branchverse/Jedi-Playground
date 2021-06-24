@@ -226,7 +226,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isSolid: 1
   _reverseWindTriangles: 0
-  _useGravity: 0
+  _useGravity: 1
   _shareVertices: 0
   _smoothVertices: 0
 --- !u!114 &5341746370907507659
@@ -241,8 +241,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8486d83b6318f04da0e6ecf524d2fee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collision_sound_crate1: {fileID: 0}
-  collision_sound_crate2: {fileID: 0}
+  collision_sound_crate1: {fileID: 74600982354603795}
+  collision_sound_crate2: {fileID: 2770283696474954564}
 --- !u!82 &74600982354603795
 AudioSource:
   m_ObjectHideFlags: 0
