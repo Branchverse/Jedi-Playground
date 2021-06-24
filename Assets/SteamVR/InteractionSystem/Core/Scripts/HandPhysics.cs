@@ -30,7 +30,7 @@ namespace Valve.VR.InteractionSystem
 
         private bool initialized = false;
 
-        private bool collisionsEnabled = true;
+        public bool collisionsEnabled = true;
 
 
         private void Start()
