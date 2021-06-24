@@ -33,8 +33,6 @@ public class LiquidController : MonoBehaviour
     }
 
     public void alterColor(float red, float green, float blue){
-        Debug.Log("Changing color to ("+red+","+green+","+blue+")");
-        Debug.Log("Currently at: "+ liquidMaterial.GetColor(BackColorName));
         Color passedColor = new Color(red,green,blue, 1f);
         liquidMaterial.SetColor(BackColorName,passedColor);
         red = red - 0.20f;
