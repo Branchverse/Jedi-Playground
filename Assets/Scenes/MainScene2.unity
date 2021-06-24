@@ -3375,6 +3375,12 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &193287320 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5084139261177041435, guid: 256023f84875b114aa431dfdb627f0b5,
+    type: 3}
+  m_PrefabInstance: {fileID: 130015705}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &197719825
 Mesh:
   m_ObjectHideFlags: 0
@@ -50164,6 +50170,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d60027b185f93f47bed6052122de690, type: 3}
+--- !u!1 &962241924 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5084139261177041435, guid: 256023f84875b114aa431dfdb627f0b5,
+    type: 3}
+  m_PrefabInstance: {fileID: 412516127}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &970168855
 Mesh:
   m_ObjectHideFlags: 0
@@ -50569,6 +50581,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4131454452211634, guid: b12c4c105828040468dcc041ca32ce5e,
     type: 3}
   m_PrefabInstance: {fileID: 1016733341}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1018555489 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5084139261177041435, guid: 256023f84875b114aa431dfdb627f0b5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1554272960}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1029429323
 GameObject:
@@ -52264,9 +52282,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db4243fbbbdee2446aaead9a15b5606a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sphere1: {fileID: 0}
-  sphere2: {fileID: 0}
-  sphere3: {fileID: 0}
+  sphere1: {fileID: 1018555489}
+  sphere2: {fileID: 962241924}
+  sphere3: {fileID: 193287320}
 --- !u!4 &1147694698
 Transform:
   m_ObjectHideFlags: 0
