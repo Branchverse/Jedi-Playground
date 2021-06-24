@@ -248,6 +248,22 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   interactable: {fileID: 0}
+--- !u!114 &5196788481925071910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9195306435420053027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca84a0510c1acf2488292e004a88fc4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxWobble: 0.03
+  WobbleSpeed: 1
+  Recovery: 1
+  AngularMultiplier: 0.1
 --- !u!1001 &8312839700517643122
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -337,6 +353,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9a9009d4c96ae249a1f532f94089974, type: 3}
+--- !u!1 &9195306435420053027 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b9a9009d4c96ae249a1f532f94089974,
+    type: 3}
+  m_PrefabInstance: {fileID: 8312839700517643122}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8419368278457255065 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b9a9009d4c96ae249a1f532f94089974,
