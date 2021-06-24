@@ -27,7 +27,6 @@ public class SaberEnterHandler : MonoBehaviour
     }
 
     private void OnTriggerExit(Collider other){     
-        Debug.Log("Now exiting"); 
         if(other.gameObject.GetComponent<HandPhysics>() != null){
             other.gameObject.GetComponent<HandPhysics>().collisionsEnabled = true;
             return;

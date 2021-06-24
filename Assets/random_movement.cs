@@ -32,14 +32,14 @@ public class random_movement : MonoBehaviour
         if(isRotating == true){
             if(targetAngle == null || targetAngle == 0.0f){
                 targetAngle = Random.Range(1.0f, 360.0f);
-                Debug.Log("targetAngle is " + targetAngle);
+                //Debug.Log("targetAngle is " + targetAngle);
             }
 
             rotateAngle = rotateAngle + 1.0f;
             
             if(targetAngle <= 180.0f){
                 transform.Rotate(0.0f, 0.0f, 1.0f); 
-                Debug.Log("target smaller");
+               // Debug.Log("target smaller");
                 if(rotateAngle >= targetAngle){
                 isRotating = false;
                 targetAngle = 0.0f;
@@ -51,7 +51,7 @@ public class random_movement : MonoBehaviour
             if(targetAngle > 180.0f){
                 newTargetAngle = 360.0f - targetAngle;
                 transform.Rotate(0.0f, 0.0f, -1.0f);
-                Debug.Log("target higher subtract: " + newTargetAngle);
+               // Debug.Log("target higher subtract: " + newTargetAngle);
                 if(rotateAngle >= newTargetAngle){
                 isRotating = false;
                 targetAngle = 0.0f;
@@ -90,7 +90,6 @@ public class random_movement : MonoBehaviour
     }
 
     void OnCollisionEnter(Collision other){
-        Debug.Log("Oupsi, R2-A2 collided");
         animator.SetBool("isWalking", false);
         isWalking = false;
         animator.SetBool("isColliding", true);
@@ -99,7 +98,6 @@ public class random_movement : MonoBehaviour
     }
 
     void OnCollisionExit(Collision other){
-        Debug.Log("R2-A2 not colliding anymore");
         animator.SetBool("isColliding", false);
         return;
     }
