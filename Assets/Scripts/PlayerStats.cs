@@ -76,14 +76,12 @@ public class PlayerStats : MonoBehaviour
                 Debug.Log("Is holding object");
                 return;
             }
-            Debug.Log(targetHandPrimary.GetComponent<Hand>().currentAttachedObject);
             Vector3 LightSaberVelocity = targetHandPrimary.transform.position - LastUsedLightSaber.transform.position;
             //scale Vector to length 10
             LastUsedLightSaber.GetComponent<Rigidbody>().velocity = Vector3.Scale( Vector3.Normalize(LightSaberVelocity), new Vector3(10,10,10));
             Vector3 SabertoTargetDelta = targetHandPrimary.transform.position - LastUsedLightSaber.transform.position;
             if (SabertoTargetDelta.magnitude<0.25){
-                Valve.VR.InteractionSystem.Hand Hand =  targetHandPrimary.GetComponent<Hand>();
-                Debug.Log(Hand);      
+                Valve.VR.InteractionSystem.Hand Hand =  targetHandPrimary.GetComponent<Hand>();     
                 Vector3 offset = LastUsedLightSaber.transform.position - LastUsedLightSaber.transform.GetChild(0).gameObject.transform.position;
                 LastUsedLightSaber.transform.position = Hand.transform.position + offset;      
                 Hand.AttachObject(LastUsedLightSaber, Hand.GetBestGrabbingType(),LastUsedLightSaber.GetComponent<Throwable>().attachmentFlags, LastUsedLightSaber.GetComponent<Throwable>().attachmentOffset);           
@@ -93,11 +91,8 @@ public class PlayerStats : MonoBehaviour
 
         if (secondaryIsActive && targetHandSecondary.GetComponent<Hand>().currentAttachedObjectInfo == null ){   
             var targetPoint = targetHandSecondary.transform.position + targetHandSecondary.GetComponentInChildren<ForceDirection>().getDirection().normalized * SecondaryGameObjectDistance;
-            //Speedmodifier to make object feel more powerful
+            //Speedmodifier to make object feel more 
             ObjectForSecondary.GetComponent<Rigidbody>().velocity = (targetPoint - ObjectForSecondary.transform.position) * 5;
-            //ObjectForSecondary.GetComponent<Rigidbody>().AddForce( (targetPoint - ObjectForSecondary.transform.position) * 5);
-            Debug.DrawLine(targetPoint, ObjectForSecondary.transform.position, Color.red, 15f);
-            Debug.Log("new velocty:" + (targetPoint - ObjectForSecondary.transform.position));
         }
     }
 
@@ -107,11 +102,6 @@ public class PlayerStats : MonoBehaviour
         if (source == SteamVR_Input_Sources.LeftHand){
             targetHandPrimary =  GameObject.Find("/Player/SteamVRObjects/LeftHand");
         }  
-        /*
-        if (targetHandPrimary.GetComponent<ClimberHand>().TouchedCount > 0) {
-            return;
-        }
-        */
         if (HandMode == 0){
             moveLightsaber(action_Boolean, source);
         } else if (HandMode == 1){
@@ -170,7 +160,6 @@ public class PlayerStats : MonoBehaviour
     private void forcePush(SteamVR_Action_Boolean action_Boolean, SteamVR_Input_Sources source){       
         GameObject Push = Instantiate(ForcePushObject, targetHandPrimary.transform.position, Quaternion.Euler(new Vector3(0,0,0)));
         Physics.IgnoreCollision(ForcePushObject.GetComponent<Collider>(), targetHandPrimary.GetComponent<Collider>());
-        //Push.transform.position = targetHandPrimary.transform.position;
         Vector3 force = targetHandPrimary.GetComponentInChildren<ForceDirection>().getDirection();
         Push.GetComponent<Rigidbody>().velocity = force * 300;
         Debug.DrawRay(targetHandPrimary.transform.position, Vector3.Scale(force, new Vector3(20,20,20)), Color.green, 10f);

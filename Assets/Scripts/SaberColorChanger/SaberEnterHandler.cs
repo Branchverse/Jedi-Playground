@@ -17,10 +17,12 @@ public class SaberEnterHandler : MonoBehaviour
         if (other.transform.root.GetComponent<Player>() != null){
             return;
         }
-        if (other.GetComponent<WeaponManager>() != null){          
+        if (other.GetComponent<WeaponManager>() != null){   
+            Debug.Log("Saber entered");       
             //Turn off saber
             other.GetComponent<WeaponManager>().weaponTurnedOff = true;
             if (Automat.getLightsaber() == null){
+                Debug.Log("Set Lightsaber");
                 Automat.setLightsaber(other.gameObject);
             }               
         }
@@ -30,9 +32,6 @@ public class SaberEnterHandler : MonoBehaviour
         if(other.gameObject.GetComponent<HandPhysics>() != null){
             other.gameObject.GetComponent<HandPhysics>().collisionsEnabled = true;
             return;
-        }
-        if (other.gameObject == Automat.getLightsaber()){
-            Automat.setLightsaber(null);
-        }
+        }     
     }
 }
