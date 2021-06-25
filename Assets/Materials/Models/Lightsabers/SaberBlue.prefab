@@ -79,7 +79,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3441095255025812787}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 24.46069, y: 1, z: -35.64092}
   m_LocalScale: {x: 0.10350949, y: 0.103509516, z: 0.103509516}
   m_Children:
@@ -88,7 +88,7 @@ Transform:
   - {fileID: 4179350194858923260}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!54 &3590087138415705646
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -159,12 +159,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activateActionSetOnAttach:
     actionSetPath: 
-  hideHandOnAttach: 0
+  hideHandOnAttach: 1
   hideSkeletonOnAttach: 0
   hideControllerOnAttach: 0
   handAnimationOnPickup: 0
   setRangeOfMotionOnPickup: -1
-  useHandObjectAttachmentPoint: 1
+  useHandObjectAttachmentPoint: 0
   attachEaseIn: 0
   snapAttachEaseInCurve:
     serializedVersion: 2
@@ -193,7 +193,7 @@ MonoBehaviour:
   snapAttachEaseInTime: 0.15
   snapAttachEaseInCompleted: 0
   skeletonPoser: {fileID: 0}
-  handFollowTransform: 1
+  handFollowTransform: 0
   highlightOnHover: 1
   hideHighlight: []
   hoverPriority: 0
@@ -215,10 +215,7 @@ MonoBehaviour:
       m_Calls: []
   onHandHoverEnd:
     m_PersistentCalls:
-      m_Calls: [{m_Target: {fileID: 3441095255025812787}, m_TargetAssemblyTypeName: '',
-          m_MethodName: '', m_Mode: 1, m_Arguments: {m_ObjectArgument: {fileID: 0},
-            m_ObjectArgumentAssemblyTypeName: '', m_IntArgument: 0, m_FloatArgument: 0,
-            m_StringArgument: '', m_BoolArgument: 0}, m_CallState: 2}]
+      m_Calls: []
   onAttachedToHand:
     m_PersistentCalls:
       m_Calls: []
@@ -237,7 +234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffefbea063cab884ca33e5a449e5c22c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attachmentFlags: 44
+  attachmentFlags: 84
   attachmentOffset: {fileID: 8554115967343656818}
   catchingSpeedThreshold: -1
   releaseVelocityStyle: 1
@@ -1226,13 +1223,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7391157662777420793}
-  m_LocalRotation: {x: -0.14526838, y: -0.13577437, z: -0.6751274, w: 0.71039814}
-  m_LocalPosition: {x: -0.040001787, y: 0.10499982, z: -0.007995925}
+  m_LocalRotation: {x: -0.53271353, y: 0.47215265, z: 0.46440965, w: 0.52688885}
+  m_LocalPosition: {x: -0.016, y: 1.48, z: -0.021}
   m_LocalScale: {x: 5.806328, y: 5.806328, z: 5.806328}
   m_Children: []
   m_Father: {fileID: 5247273969708224055}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: -22.937, y: 0.202, z: -87.124}
+  m_LocalEulerAnglesHint: {x: -89.215, y: 168.425, z: -85.48}
 --- !u!1001 &2476815688702944256
 PrefabInstance:
   m_ObjectHideFlags: 0

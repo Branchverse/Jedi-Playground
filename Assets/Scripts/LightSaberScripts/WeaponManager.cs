@@ -192,4 +192,12 @@ Vector3 vector = new Vector3(-1.0f,0f);
             }
         }
     }
+    public void AlignSaber(){
+        Hand hand = interactable.attachedToHand;
+        Debug.Log("Aligner called");
+        if (hand.handType == SteamVR_Input_Sources.LeftHand){
+            Debug.Log("Rotated");
+            transform.Rotate(0,0,0);
+        }
+    }
 }

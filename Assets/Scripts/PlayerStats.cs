@@ -204,4 +204,5 @@ public class PlayerStats : MonoBehaviour
         secondaryIsActive = false;
         targetIndicator.positionCount = 0;
     }
+
 }
