@@ -67,7 +67,8 @@ public class ShootSphereScript : MonoBehaviour
         else if(saberMode){counter++;}
         if(moving)
         {
-            transform.position += deltaPosition; movingCounter++;
+            //transform.position += deltaPosition; 
+            movingCounter++;
             if(movingCounter == 51){moving = false;movingCounter = 0;shootAtPlayer();}
         }
     }

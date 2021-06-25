@@ -66,8 +66,12 @@ public class BulletHandler : MonoBehaviour
             
             foreach(Collider coll in childrenColliders)
             {
-            Debug.Log(coll.GetComponent<Collider>() + " Is being ignored now");
-            Physics.IgnoreCollision(GetComponent<Collider>(), coll.GetComponent<Collider>(), ignore);
+                if(coll.GetComponent<Reflecting>() == null)
+                {
+                    Debug.Log(coll.GetComponent<Collider>() + " Is being ignored now");
+                    Physics.IgnoreCollision(GetComponent<Collider>(), coll.GetComponent<Collider>(), ignore);
+                }
+                
             }
         }
     }
