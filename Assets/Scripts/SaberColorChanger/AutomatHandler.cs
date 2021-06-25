@@ -77,10 +77,6 @@ public class AutomatHandler : MonoBehaviour
             Debug.Log("No saber in machine");
             return;
         }
-        SaberinMachine.transform.position = OutPoint.position;
-        SaberinMachine.gameObject.GetComponent<Rigidbody>().isKinematic = false;
-        SaberinMachine = null;
-        SaberIsAligned = true;
         if (SaberinMachine != null && BarrelinSlot != null){
             //Default value
             Color barrelColor = Color.blue;
