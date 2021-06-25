@@ -10,6 +10,9 @@ public class ThrustmasterHandler : MonoBehaviour
         if (other.transform.tag == "Lever")
         {
             Debug.Log("Reset-Lever activated");
+
+            Destroy(GameObject.FindGameObjectWithTag("Player"));
+
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
