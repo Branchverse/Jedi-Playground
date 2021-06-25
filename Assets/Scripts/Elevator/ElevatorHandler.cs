@@ -92,6 +92,7 @@ public class ElevatorHandler : MonoBehaviour
     }
 
     public void moveAdapt(){
+        Debug.Log("Moving");
         if (gameObject.transform.localPosition.y == lowestPosition){
             movingUp = true;
             movingDown = false;

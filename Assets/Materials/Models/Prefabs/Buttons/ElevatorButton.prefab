@@ -279,7 +279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movingPart: {fileID: 6260384925785384845}
-  localMoveDistance: {x: 0, y: -0.1, z: 0}
+  localMoveDistance: {x: 0.05, y: -0.05, z: 0}
   engageAtPercent: 0.95
   disengageAtPercent: 0.9
   onButtonDown:
