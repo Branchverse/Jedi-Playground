@@ -39,6 +39,8 @@ public class WeaponManager : MonoBehaviour
     private Vector3 _triggerEnterBasePosition;
     private Vector3 _triggerExitTipPosition; 
 
+    private Rigidbody rb;
+
     [SerializeField]
     private AudioSource turnOnSound, turnOffSound, hummingSound, cuttingSound;
     
@@ -46,6 +48,7 @@ public class WeaponManager : MonoBehaviour
     void Start() 
     {
         interactable = GetComponent<Interactable>();
+        rb = GetComponent<Rigidbody>();
     }
 
     void Awake()
@@ -86,8 +89,6 @@ Vector3 vector = new Vector3(-1.0f,0f);
         }
         
         // cuttingSound.loop = true;
-
-        Debug.Log(other);
         _triggerEnterTipPosition = _tip.transform.position;
         _triggerEnterBasePosition = _base.transform.position;
     }

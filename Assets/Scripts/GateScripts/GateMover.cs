@@ -7,8 +7,8 @@ public class GateMover : MonoBehaviour
 {
     public AudioSource audioSource;
 
-    private bool openTheGate = false;
-    private bool closeTheGate = false;
+    public bool openTheGate = false;
+    public bool closeTheGate = false;
     private bool isSoundPlaying = false;
 
     private float lowestPosition = 4.46f;

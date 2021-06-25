@@ -17,6 +17,8 @@ public class AutomatHandler : MonoBehaviour
 
     public Transform ContainerPosition;
 
+    public Transform OutPoint;
+
     private string BackColorName = "Color_1e8f8433be814ccaaf40e054928c7e81";
 
     private string FillName = "Vector1_c42c52aff56a419384be3fd9560b4f22";
@@ -26,6 +28,8 @@ public class AutomatHandler : MonoBehaviour
     private bool BarrelIsAligned;
 
     private Material BarrelFluid;
+
+    
     void Start()
     {
 
@@ -39,6 +43,7 @@ public class AutomatHandler : MonoBehaviour
                 SaberinMachine.gameObject.transform.position = SaberPosition.transform.position;
                 SaberinMachine.gameObject.transform.eulerAngles = new Vector3(0,0,0);
                 SaberinMachine.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+                Debug.Log("Set to kinematic");
                 SaberIsAligned = true;
             }
         }
@@ -46,7 +51,7 @@ public class AutomatHandler : MonoBehaviour
         if (BarrelinSlot != null && !BarrelIsAligned){
             if (BarrelinSlot.GetComponent<Interactable>().attachedToHand == null){ 
                 BarrelinSlot.gameObject.transform.position = ContainerPosition.position;
-                BarrelinSlot.gameObject.transform.eulerAngles = new Vector3(0,90,0);
+                BarrelinSlot.gameObject.transform.eulerAngles = new Vector3(90,0,0);
                 BarrelinSlot.gameObject.GetComponent<Rigidbody>().isKinematic = true;
                 BarrelIsAligned = true;
             }
@@ -54,7 +59,6 @@ public class AutomatHandler : MonoBehaviour
 
         //Empty Barrel if necessary and BarrelFluid exists
         if (emptyBarrel &&  BarrelFluid != null){
-            Debug.Log("Emtpying");
             float currentFill = BarrelFluid.GetFloat(FillName);
             if (currentFill <= -4.9f){
                 emptyBarrel = false;
@@ -62,7 +66,7 @@ public class AutomatHandler : MonoBehaviour
                 BarrelinSlot = null;
                 BarrelFluid = null;
             } else{
-                BarrelFluid.SetFloat(FillName, currentFill - 0.01f);
+                BarrelFluid.SetFloat(FillName, currentFill - 0.001f);
             }
         }
     }
@@ -73,6 +77,10 @@ public class AutomatHandler : MonoBehaviour
             Debug.Log("No saber in machine");
             return;
         }
+        SaberinMachine.transform.position = OutPoint.position;
+        SaberinMachine.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+        SaberinMachine = null;
+        SaberIsAligned = true;
         if (SaberinMachine != null && BarrelinSlot != null){
             //Default value
             Color barrelColor = Color.blue;
@@ -84,13 +92,11 @@ public class AutomatHandler : MonoBehaviour
             }      
             alterSaberColor(barrelColor, SaberinMachine);
             emptyBarrel = true;
-        }   
-
-        if (SaberinMachine != null){
+            SaberinMachine.transform.position = OutPoint.position;
             SaberinMachine.gameObject.GetComponent<Rigidbody>().isKinematic = false;
             SaberinMachine = null;
-        }
-
+            SaberIsAligned = true;
+        }   
     }
 
     public GameObject getLightsaber(){
@@ -98,8 +104,9 @@ public class AutomatHandler : MonoBehaviour
     }
 
     public void setLightsaber(GameObject saber){
+        Debug.Log("Saber set to"+saber.transform.name);
         if (saber == null){
-            SaberinMachine = saber;
+            SaberinMachine = null;
             SaberIsAligned = true;
         }
         SaberinMachine = saber;
