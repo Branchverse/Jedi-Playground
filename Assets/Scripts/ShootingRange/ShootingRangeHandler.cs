@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 public class ShootingRangeHandler : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class ShootingRangeHandler : MonoBehaviour
 
     private bool blasterActive = false;
     private bool saberActive = false;
+    private float floatTimer = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -21,16 +23,29 @@ public class ShootingRangeHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
+    }
+    void FixedUpdate()
+    {
+        if (saberActive)
+        {
+            floatTimer += Time.fixedDeltaTime;
+            if (floatTimer >= 19)
+            {
+                floatTimer = 0f; 
+                activateSphereTrainingSaber();
+            }
+        }
+        Debug.LogWarning("floatTimer: " + floatTimer + "saberActive is: " + saberActive);
     }
 
     public void activateSphereTrainingBlaster()
     {
         blasterActive = !blasterActive;
-        if(blasterActive)
+        if (blasterActive)
         {
             Debug.Log("Handler activates BlasterTraining");
-            if(saberActive){activateSphereTrainingSaber();}
+            if (saberActive) { activateSphereTrainingSaber(); }
             sphere2.SetActive(true);
             sphere3.SetActive(true);
             sphere1.GetComponent<ShootSphereScript>().activateSphereTrainingBlaster();
@@ -46,16 +61,17 @@ public class ShootingRangeHandler : MonoBehaviour
             sphere2.SetActive(false);
             sphere3.SetActive(false);
         }
-        
+
     }
     public void activateSphereTrainingSaber()
     {
+        floatTimer = 0f;
         saberActive = !saberActive;
-        
-        if(saberActive)
+
+        if (saberActive)
         {
             Debug.Log("Handler activates SaberTraining");
-            if(blasterActive){activateSphereTrainingBlaster();}
+            if (blasterActive) { activateSphereTrainingBlaster(); }
             sphere1.GetComponent<ShootSphereScript>().activateSphereTrainingSaber();
         }
         else
