@@ -36,7 +36,6 @@ public class ShootingRangeHandler : MonoBehaviour
                 activateSphereTrainingSaber();
             }
         }
-        Debug.LogWarning("floatTimer: " + floatTimer + "saberActive is: " + saberActive);
     }
 
     public void activateSphereTrainingBlaster()
