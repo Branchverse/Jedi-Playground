@@ -29,6 +29,8 @@ public class AutomatHandler : MonoBehaviour
 
     private Material BarrelFluid;
 
+    [SerializeField]
+    private AudioSource activationSound;
     
     void Start()
     {
@@ -92,6 +94,8 @@ public class AutomatHandler : MonoBehaviour
             SaberinMachine.gameObject.GetComponent<Rigidbody>().isKinematic = false;
             SaberinMachine = null;
             SaberIsAligned = true;
+
+            activationSound.Play();
         }   
     }
 
