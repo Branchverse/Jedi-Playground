@@ -16,9 +16,14 @@ public class GarbageCollector : MonoBehaviour
         {
             obj = obj.transform.parent.gameObject;
         }
-        Debug.Log($"{obj} detected and will be destroyed with a BANG");
-        StartCoroutine(Waiter());
-        Waiter();
+        if(obj.layer != 3 && obj.layer != 8 && obj.name != "SaberBlue")
+        {
+            Debug.Log($"{obj} detected and will be destroyed with a BANG");
+            StartCoroutine(Waiter());
+            Waiter();
+        }
+        else{Debug.Log("This Object cannot be destroyed");}
+        
     }
     
     public IEnumerator Waiter()
