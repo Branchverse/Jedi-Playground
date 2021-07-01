@@ -12,13 +12,7 @@ public class forcePushScript : MonoBehaviour
 
     // TODO: change direction v3 to input
     void Start ()
-    {  
-        /*
-        player = GameObject.FindWithTag("Player");
-        direction = player.transform.forward;
-        rb.velocity = direction * 100;
-        */
-        
+    {        
         StartCoroutine("KillAfterTime");
     }
 
@@ -59,6 +53,10 @@ public class forcePushScript : MonoBehaviour
         // kill on wall
         if (collider.GetType() == typeof(MeshCollider)) 
         {
+            //Don´t destroy on wallcollision
+            if (collider.gameObject.layer == LayerMask.NameToLayer("Walls")){
+                return;
+            }
             Destroy(gameObject);
         } 
 

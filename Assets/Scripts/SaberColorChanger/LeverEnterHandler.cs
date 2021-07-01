@@ -12,6 +12,7 @@ public class LeverEnterHandler : MonoBehaviour
 
     // Update is called once per frame
     private void OnTriggerEnter(Collider other){
+        Debug.Log("Levertrigger : "+other.transform.tag);
         if (other.transform.tag == "Lever"){
             Debug.Log("Lever activated");
             Automat.activateColorChange();

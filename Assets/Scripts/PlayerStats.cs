@@ -118,6 +118,9 @@ public class PlayerStats : MonoBehaviour
     }
 
     private void useSecondary(SteamVR_Action_Boolean action_Boolean, SteamVR_Input_Sources source){
+        if (targetIndicator == null){
+            targetIndicator = GetComponent<LineRenderer>();
+        }
         targetHandSecondary = GameObject.Find("/Player/SteamVRObjects/RightHand");
         if (source == SteamVR_Input_Sources.LeftHand){
              targetHandSecondary =  GameObject.Find("/Player/SteamVRObjects/LeftHand");

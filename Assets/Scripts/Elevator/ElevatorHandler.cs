@@ -17,7 +17,7 @@ public class ElevatorHandler : MonoBehaviour
 
     private float openSpeed = 1.3f;
 
-    private bool PlayerInElevator;
+    private bool PlayerInElevator = false;
 
     private Rigidbody rb;
 
@@ -50,9 +50,6 @@ public class ElevatorHandler : MonoBehaviour
         gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition.x, Mathf.Clamp(currentPosition + (openSpeed * Time.deltaTime), lowestPosition, highestPosition), gameObject.transform.localPosition.z);
         if (PlayerInElevator){
             PlayerObject.GetComponent<JoyStickMovement>().PlayerGravity = -openSpeed;
-            //PlayerObject.transform.position = new Vector3(PlayerObject.transform.position.x, PlayerObject.transform.position.y + (openSpeed * Time.deltaTime), PlayerObject.transform.position.z);
-            //PlayerObject.GetComponent<Rigidbody>().useGravity = false;
-            //PlayerObject.GetComponent<Rigidbody>().velocity = new Vector3(0,openSpeed,0);
         }
         if(gameObject.transform.localPosition.y == highestPosition)
         {

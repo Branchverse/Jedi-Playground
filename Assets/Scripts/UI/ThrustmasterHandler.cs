@@ -11,9 +11,11 @@ public class ThrustmasterHandler : MonoBehaviour
         {
             Debug.Log("Reset-Lever activated");
 
-            Destroy(GameObject.FindGameObjectWithTag("Player"));
+            SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().buildIndex);
 
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            Resources.UnloadUnusedAssets();
+
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
         }
     }
 }
