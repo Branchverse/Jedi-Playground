@@ -87,6 +87,8 @@ namespace Valve.VR.InteractionSystem
         public bool spewDebugText = false;
         public bool showDebugInteractables = false;
 
+        public bool canUseForce = true;
+
         public struct AttachedObject
         {
             public GameObject attachedObject;

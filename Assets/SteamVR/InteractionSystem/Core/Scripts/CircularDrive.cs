@@ -219,6 +219,7 @@ namespace Valve.VR.InteractionSystem
 		//-------------------------------------------------
 		private void OnHandHoverBegin( Hand hand )
 		{
+			hand.canUseForce = false;
             hand.ShowGrabHint();
 		}
 
@@ -227,6 +228,7 @@ namespace Valve.VR.InteractionSystem
 		private void OnHandHoverEnd( Hand hand )
 		{
             hand.HideGrabHint();
+			hand.canUseForce = true;
 
 			if ( driving && hand )
 			{

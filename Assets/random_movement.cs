@@ -13,6 +13,8 @@ public class random_movement : MonoBehaviour
     private bool isWalking = false;
     int rotate;
 
+    public bool isFloating;
+
     private float targetAngle;
     private float newTargetAngle;
     private float rotateAngle;
@@ -32,7 +34,7 @@ public class random_movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(rigidbody.useGravity == false){
+        if(isFloating){
             return;
         }
         if(isWandering == false){

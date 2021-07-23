@@ -91,7 +91,7 @@ public class PlayerStats : MonoBehaviour
 
         if (secondaryIsActive && targetHandSecondary.GetComponent<Hand>().currentAttachedObjectInfo == null ){   
             var targetPoint = targetHandSecondary.transform.position + targetHandSecondary.GetComponentInChildren<ForceDirection>().getDirection().normalized * SecondaryGameObjectDistance;
-            //Speedmodifier to make object feel more 
+            //Speedmodifier to make force feel more powerful
             ObjectForSecondary.GetComponent<Rigidbody>().velocity = (targetPoint - ObjectForSecondary.transform.position) * 5;
         }
     }
@@ -126,18 +126,15 @@ public class PlayerStats : MonoBehaviour
              targetHandSecondary =  GameObject.Find("/Player/SteamVRObjects/LeftHand");
         }  
         Debug.Log("Now secondary with"+targetHandSecondary.transform.name);
-        if (targetHandSecondary.GetComponent<Hand>().currentAttachedObjectInfo != null){
+        if (targetHandSecondary.GetComponent<Hand>().currentAttachedObjectInfo != null || !targetHandSecondary.GetComponent<Hand>().canUseForce){
             Debug.Log("is holding Object");
             return;
         }
         RaycastHit hit;
         Debug.Log("Looking for secondary target");
-        //Debug.DrawRay(targetHandSecondary.transform.position, targetHandSecondary.GetComponentInChildren<ForceDirection>().getDirection(), Color.green);
         if(Physics.Raycast( targetHandSecondary.transform.position, targetHandSecondary.GetComponentInChildren<ForceDirection>().getDirection(), out hit)){
 
-
             Debug.Log("hit: "+hit.transform.gameObject.name);
-
             targetIndicator.positionCount = 2;
             targetIndicator.SetPosition(0,targetHandSecondary.gameObject.transform.position);
             targetIndicator.SetPosition(1,hit.point);
@@ -149,15 +146,15 @@ public class PlayerStats : MonoBehaviour
                 return;
             }
 
+            if (hit.transform.gameObject.GetComponent<random_movement>() != null){
+                hit.transform.gameObject.GetComponent<random_movement>().isFloating = true;
+            }
 
             ObjectForSecondary = hit.transform.gameObject;
             secondaryIsActive = true;
-             targetIndicator.positionCount = 0;
+            targetIndicator.positionCount = 0;
             SecondaryGameObjectDistance = (ObjectForSecondary.transform.position - targetHandSecondary.transform.position).magnitude;           
-            Debug.Log("set secondary target");
-            return;
         }
-        Debug.Log("No target found");
     }
 
     private void forcePush(SteamVR_Action_Boolean action_Boolean, SteamVR_Input_Sources source){       
@@ -180,7 +177,7 @@ public class PlayerStats : MonoBehaviour
             targetHandPrimary =  GameObject.Find("/Player/SteamVRObjects/LeftHand");
         }
         
-        if (!targetHandPrimary.GetComponent<Hand>().ObjectIsAttached(LastUsedLightSaber)){
+        if (!targetHandPrimary.GetComponent<Hand>().ObjectIsAttached(LastUsedLightSaber) && targetHandPrimary.GetComponent<Hand>().canUseForce){
             Debug.Log("pulling lightsaber"); 
             isPullingSaber = true;
         } else {
@@ -204,6 +201,9 @@ public class PlayerStats : MonoBehaviour
     }
 
     private void stopSecondary(SteamVR_Action_Boolean action_Boolean, SteamVR_Input_Sources source){
+        if (ObjectForSecondary.transform.gameObject.GetComponent<random_movement>() != null){
+                ObjectForSecondary.transform.gameObject.GetComponent<random_movement>().isFloating = false;
+        }
         secondaryIsActive = false;
         targetIndicator.positionCount = 0;
     }
