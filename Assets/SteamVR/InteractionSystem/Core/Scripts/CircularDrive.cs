@@ -232,7 +232,6 @@ namespace Valve.VR.InteractionSystem
 
 			if ( driving && hand )
 			{
-                //hand.TriggerHapticPulse() //todo: fix
 				StartCoroutine( HapticPulses( hand, 1.0f, 10 ) );
 			}
 

@@ -25,8 +25,6 @@ public class ElevatorHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       // rb = GetComponent<Rigidbody>();
-       // Physics.IgnoreLayerCollision(0,10);
     }
 
     // Update is called once per frame
@@ -104,7 +102,6 @@ public class ElevatorHandler : MonoBehaviour
         if (other.gameObject.transform.root.GetComponent<Player>() != null){
             PlayerInElevator = true;
             PlayerObject = other.gameObject.transform.root.gameObject;
-            //PlayerObject.transform.parent = transform;
         }
     }
 
@@ -112,7 +109,7 @@ public class ElevatorHandler : MonoBehaviour
         if (other.gameObject.transform.root.GetComponent<Player>() != null){
             PlayerInElevator = false;
             PlayerObject = null;
-            //PlayerObject.transform.parent = null;
+            PlayerObject.GetComponent<JoyStickMovement>().PlayerGravity = 9.81f;
         }
     }
 }
