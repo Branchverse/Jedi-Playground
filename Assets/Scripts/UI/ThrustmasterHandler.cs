@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Valve.VR;
 
 public class ThrustmasterHandler : MonoBehaviour
 {
@@ -11,11 +12,10 @@ public class ThrustmasterHandler : MonoBehaviour
         {
             Debug.Log("Reset-Lever activated");
 
-            SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().buildIndex);
+            var Scenename = SceneManager.GetActiveScene().name;
 
-            Resources.UnloadUnusedAssets();
-
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
+            //SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().buildIndex);
+            SteamVR_LoadLevel.Begin(Scenename);
         }
     }
 }
