@@ -90,6 +90,7 @@ public class AutomatHandler : MonoBehaviour
             }      
             alterSaberColor(barrelColor, SaberinMachine);
             emptyBarrel = true;
+            SaberinMachine.transform.eulerAngles= new Vector3(90,0,0);
             SaberinMachine.transform.position = OutPoint.position;
             SaberinMachine.gameObject.GetComponent<Rigidbody>().isKinematic = false;
             SaberinMachine = null;

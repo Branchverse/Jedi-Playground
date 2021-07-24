@@ -3588,7 +3588,7 @@ PrefabInstance:
     - target: {fileID: 2905757323886898175, guid: 6218b15e3ce9c8040a69e3adb654229a,
         type: 3}
       propertyPath: m_Name
-      value: Thrustmaster (1)
+      value: Reset Lever
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6218b15e3ce9c8040a69e3adb654229a, type: 3}
