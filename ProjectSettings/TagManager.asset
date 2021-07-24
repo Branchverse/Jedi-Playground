@@ -9,6 +9,8 @@ TagManager:
   - projectile
   - FxTemporaire
   - Double
+  - Lever
+  - ColorContainer
   layers:
   - Default
   - TransparentFX
@@ -19,7 +21,7 @@ TagManager:
   - Post Processing
   - DeflectHitbox
   - Bullet
-  - 
+  - IgnoreAllButPlayer
   - 
   - 
   - 
