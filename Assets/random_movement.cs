@@ -21,6 +21,7 @@ public class random_movement : MonoBehaviour
 
     private Rigidbody rigidbody;
 
+    private bool hasScreamed = false;
     private IEnumerator Wandercoroutine;
 
     [SerializeField]
@@ -50,9 +51,15 @@ public class random_movement : MonoBehaviour
     void Update()
     {
         if(isFloating){
-            screamingSound.Play();  
+            if (!hasScreamed) {
+                screamingSound.Play();
+                hasScreamed = true;
+            }
             return;
+        } else {
+            hasScreamed = false;
         }
+
         if(isWandering == false){
             StartCoroutine(Wander());
         }
@@ -119,10 +126,10 @@ public class random_movement : MonoBehaviour
         isWandering = false;
     }
 
-    IEnumerator playTalkingSound () {
+    IEnumerator playTalkingSound() {
         isTalking = true;
         yield return new WaitForSeconds(Random.Range(1, 20));
-        private List<AudioSource> talkingSounds = new List<AudioSource>() { talkSoundLong, talkSoundShort1, talkSoundShort2 };
+        List<AudioSource> talkingSounds = new List<AudioSource>() { talkSoundLong, talkSoundShort1, talkSoundShort2 };
         talkingSounds[Random.Range(0, talkingSounds.Count)].Play();
     }
 
