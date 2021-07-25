@@ -23,6 +23,21 @@ public class random_movement : MonoBehaviour
 
     private IEnumerator Wandercoroutine;
 
+    [SerializeField]
+    private AudioSource screamingSound;
+    [SerializeField]
+    private AudioSource movementSound;
+    [SerializeField]
+    private AudioSource talkSoundLong;
+    [SerializeField]
+    private AudioSource talkSoundShort1;
+    [SerializeField]
+    private AudioSource talkSoundShort2;
+    [SerializeField]
+    private AudioSource collisionSound;
+
+    private bool isTalking = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +50,7 @@ public class random_movement : MonoBehaviour
     void Update()
     {
         if(isFloating){
+            screamingSound.Play();  
             return;
         }
         if(isWandering == false){
@@ -50,26 +66,36 @@ public class random_movement : MonoBehaviour
             if(targetAngle <= 180.0f){
                 transform.Rotate(0.0f, 0.0f, 1.0f); 
                 if(rotateAngle >= targetAngle){
-                isRotating = false;
-                targetAngle = 0.0f;
-                rotateAngle = 0.0f;
-                return;
-            }
+                    isRotating = false;
+                    targetAngle = 0.0f;
+                    rotateAngle = 0.0f;
+                    return;
+                }
             }
 
             if(targetAngle > 180.0f){
                 newTargetAngle = 360.0f - targetAngle;
                 transform.Rotate(0.0f, 0.0f, -1.0f);
                 if(rotateAngle >= newTargetAngle){
-                isRotating = false;
-                targetAngle = 0.0f;
-                rotateAngle = 0.0f;
-                return;
-            }
+                    isRotating = false;
+                    targetAngle = 0.0f;
+                    rotateAngle = 0.0f;
+                    return;
+                }
             }
         }
         if(isWalking == true){
             transform.position += transform.right * moveSpeed * Time.deltaTime;
+
+            movementSound.loop = true;
+            movementSound.Play();
+        } else {
+            movementSound.Stop();
+        }
+        if (!isTalking) {
+            StartCoroutine(playTalkingSound());
+        } else if (!talkSoundLong.isPlaying && !talkSoundShort1.isPlaying && !talkSoundShort2.isPlaying) {
+            isTalking = false;
         }
     }
 
@@ -93,11 +119,22 @@ public class random_movement : MonoBehaviour
         isWandering = false;
     }
 
+    IEnumerator playTalkingSound () {
+        isTalking = true;
+        yield return new WaitForSeconds(Random.Range(1, 20));
+        private List<AudioSource> talkingSounds = new List<AudioSource>() { talkSoundLong, talkSoundShort1, talkSoundShort2 };
+        talkingSounds[Random.Range(0, talkingSounds.Count)].Play();
+    }
+
     void OnCollisionEnter(Collision other){
         animator.SetBool("isWalking", false);
         isWalking = false;
         animator.SetBool("isColliding", true);
         rotate = 2;
+
+        if (isFloating) {
+            collisionSound.Play();
+        }
         return;
     }
 
