@@ -162,7 +162,7 @@ public class ShootSphereScript : MonoBehaviour
 
         // Shoot
         GameObject bulletPrefabClone = Instantiate(bulletPrefab, bulletSpawner.transform.position, bulletSpawner.transform.rotation);
-        bulletPrefabClone.GetComponent<Rigidbody>().AddForce(direction * 30f, ForceMode.Impulse);
+        bulletPrefabClone.GetComponent<Rigidbody>().AddForce(direction * 20f, ForceMode.Impulse);
         Destroy(bulletPrefabClone, 3f);
     }
     private void levitateToNewPosition()

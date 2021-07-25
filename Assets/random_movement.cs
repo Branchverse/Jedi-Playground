@@ -101,8 +101,6 @@ public class random_movement : MonoBehaviour
         }
         if (!isTalking) {
             StartCoroutine(playTalkingSound());
-        } else if (!talkSoundLong.isPlaying && !talkSoundShort1.isPlaying && !talkSoundShort2.isPlaying) {
-            isTalking = false;
         }
     }
 
@@ -126,11 +124,12 @@ public class random_movement : MonoBehaviour
         isWandering = false;
     }
 
-    IEnumerator playTalkingSound() {
+    IEnumerator playTalkingSound() {  
         isTalking = true;
-        yield return new WaitForSeconds(Random.Range(1, 20));
+        yield return new WaitForSeconds(Random.Range(1, 45));
         List<AudioSource> talkingSounds = new List<AudioSource>() { talkSoundLong, talkSoundShort1, talkSoundShort2 };
         talkingSounds[Random.Range(0, talkingSounds.Count)].Play();
+        isTalking = false;    
     }
 
     void OnCollisionEnter(Collision other){

@@ -4907,7 +4907,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh34682
+  m_Name: pb_Mesh44572
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -8417,7 +8417,7 @@ GameObject:
   - component: {fileID: 415766822}
   - component: {fileID: 415766821}
   - component: {fileID: 415766820}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Shed_FrontWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8517,7 +8517,7 @@ GameObject:
   - component: {fileID: 417417859}
   - component: {fileID: 417417858}
   - component: {fileID: 417417857}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Shed_BackWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8683,7 +8683,7 @@ GameObject:
   - component: {fileID: 433400691}
   - component: {fileID: 433400690}
   - component: {fileID: 433400689}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Hangar_Back_Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36353,7 +36353,7 @@ PrefabInstance:
     - target: {fileID: 6387942884875919629, guid: 9c46635824b816e47ab3c1121a8dd9cf,
         type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6387942884875919632, guid: 9c46635824b816e47ab3c1121a8dd9cf,
         type: 3}
@@ -37432,7 +37432,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh34138
+  m_Name: pb_Mesh44022
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -39006,7 +39006,7 @@ GameObject:
   - component: {fileID: 618853047}
   - component: {fileID: 618853046}
   - component: {fileID: 618853049}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: HallWay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47919,47 +47919,47 @@ PrefabInstance:
     - target: {fileID: 3110217031678762268, guid: 46a1717756dd54b459bf18cb0cf4364a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 29.355743
+      value: 604
       objectReference: {fileID: 0}
     - target: {fileID: 3110217031678762268, guid: 46a1717756dd54b459bf18cb0cf4364a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 512.3
+      value: 230
       objectReference: {fileID: 0}
     - target: {fileID: 3110217031678762268, guid: 46a1717756dd54b459bf18cb0cf4364a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -70.3
+      value: -151
       objectReference: {fileID: 0}
     - target: {fileID: 3110217031678762268, guid: 46a1717756dd54b459bf18cb0cf4364a,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.83902276
       objectReference: {fileID: 0}
     - target: {fileID: 3110217031678762268, guid: 46a1717756dd54b459bf18cb0cf4364a,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: 0.17696276
       objectReference: {fileID: 0}
     - target: {fileID: 3110217031678762268, guid: 46a1717756dd54b459bf18cb0cf4364a,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.5034384
       objectReference: {fileID: 0}
     - target: {fileID: 3110217031678762268, guid: 46a1717756dd54b459bf18cb0cf4364a,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: 0.10618288
       objectReference: {fileID: 0}
     - target: {fileID: 3110217031678762268, guid: 46a1717756dd54b459bf18cb0cf4364a,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: 23.82
       objectReference: {fileID: 0}
     - target: {fileID: 3110217031678762268, guid: 46a1717756dd54b459bf18cb0cf4364a,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -61.93
       objectReference: {fileID: 0}
     - target: {fileID: 3110217031678762268, guid: 46a1717756dd54b459bf18cb0cf4364a,
         type: 3}
@@ -50974,7 +50974,7 @@ GameObject:
   - component: {fileID: 1156904222}
   - component: {fileID: 1156904221}
   - component: {fileID: 1156904220}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51141,7 +51141,7 @@ GameObject:
   - component: {fileID: 1183752517}
   - component: {fileID: 1183752516}
   - component: {fileID: 1183752515}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Shed_SideWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53765,7 +53765,7 @@ GameObject:
   - component: {fileID: 1217608807}
   - component: {fileID: 1217608806}
   - component: {fileID: 1217608805}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cube (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55105,6 +55105,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7776488713927362406, guid: 1a9263c83cf238c4e925a0157e901668,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.084
+      objectReference: {fileID: 0}
+    - target: {fileID: 7776488713927362406, guid: 1a9263c83cf238c4e925a0157e901668,
+        type: 3}
+      propertyPath: MaxDistance
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a9263c83cf238c4e925a0157e901668, type: 3}
@@ -56673,7 +56683,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1431254654}
   m_LocalRotation: {x: 0.02702377, y: 0.065484285, z: -0.99520427, w: 0.06745368}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 70, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2030464561}
@@ -60491,7 +60501,7 @@ GameObject:
   - component: {fileID: 1590469616}
   - component: {fileID: 1590469615}
   - component: {fileID: 1590469614}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: MiddleWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64079,7 +64089,7 @@ GameObject:
   - component: {fileID: 1823198299}
   - component: {fileID: 1823198298}
   - component: {fileID: 1823198297}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65923,7 +65933,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh34318
+  m_Name: pb_Mesh44202
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -68686,7 +68696,7 @@ PrefabInstance:
     - target: {fileID: 5208206975390760163, guid: 8d06e616b0791fb468b5351ffd2ee370,
         type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5208206975390760164, guid: 8d06e616b0791fb468b5351ffd2ee370,
         type: 3}

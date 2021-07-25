@@ -64,6 +64,7 @@ namespace Valve.VR.InteractionSystem
 
             if (interactable.attachedToHand == null && startingGrabType != GrabTypes.None)
             {
+				hand.canUseForce = false;
                 initialMappingOffset = linearMapping.value - CalculateLinearMapping( hand.transform );
 				sampleCount = 0;
 				mappingChangeRate = 0.0f;
@@ -78,6 +79,7 @@ namespace Valve.VR.InteractionSystem
 
             if (hand.IsGrabEnding(this.gameObject))
             {
+				hand.canUseForce = true;
                 hand.DetachObject(gameObject);
             }
         }
